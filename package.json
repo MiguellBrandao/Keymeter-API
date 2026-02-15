@@ -1,0 +1,36 @@
+{
+  "name": "keymeter-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguellBrandao/Keymeter-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MiguellBrandao/Keymeter-API/issues"
+  },
+  "homepage": "https://github.com/MiguellBrandao/Keymeter-API#readme",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.4.0",
+    "@prisma/client": "^7.4.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "pg": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.2.3",
+    "@types/pg": "^8.16.0",
+    "prisma": "^7.4.0",
+    "tsx": "^4.21.0"
+  }
+}
