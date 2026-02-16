@@ -6,7 +6,7 @@ invites: 2h e 30m
  - invite user
  - revoke invite
  - accept invite
-members: ESTIMATIVA 1h
+members: 30m
  - change role of member
  - remove member
 apiKeys: ESTIMATIVA 2h e 30m

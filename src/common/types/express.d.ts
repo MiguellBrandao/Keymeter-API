@@ -10,6 +10,7 @@ declare global {
     interface Request {
       user?: User
       validatedQuery?: Record<string, unknown>
+      validatedParams?: Record<string, unknown>
     }
   }
 }

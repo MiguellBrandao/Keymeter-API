@@ -45,18 +45,38 @@ export class PrismaMembersRepository implements MembersRepository {
                     userId: data.userId,
                 },
             }
+        }).catch((error) => {
+            if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2025") {
+                throw new AppError({
+                    httpStatus: 404,
+                    message: "Member not found in this organization.",
+                })
+            }
+
+            throw error
         })
     }
 
     async delete(data: DeleteMember): Promise<boolean> {
-        await this.prisma.memberShip.delete({
-            where: {
-                 orgId_userId: {
-                    orgId: data.orgId,
-                    userId: data.userId,
-                },
+        try {
+            await this.prisma.memberShip.delete({
+                where: {
+                     orgId_userId: {
+                        orgId: data.orgId,
+                        userId: data.userId,
+                    },
+                }
+            })
+        } catch (error) {
+            if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2025") {
+                throw new AppError({
+                    httpStatus: 404,
+                    message: "Member not found in this organization.",
+                })
             }
-        })
+
+            throw error
+        }
         return true
     }
 }

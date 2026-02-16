@@ -15,9 +15,11 @@ export type ChangeRole = {
     orgId: string
     userId: string
     role: Role
+    byUserId: string
 }
 
 export type DeleteMember = {
     orgId: string
     userId: string
+    byUserId: string
 }
