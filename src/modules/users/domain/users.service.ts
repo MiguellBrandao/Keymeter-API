@@ -5,10 +5,10 @@ export class UsersService {
     constructor(private usersRepository: UserRepository) {}
 
     async createUser(data: CreateUser) {
-        return this.usersRepository.createUser(data)
+        return await this.usersRepository.createUser(data)
     }
 
     async findUser(params: FindUser) {
-        return this.usersRepository.findUser(params)
+        return await this.usersRepository.findUser(params)
     }
 }

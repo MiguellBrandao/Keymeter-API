@@ -1,20 +1,20 @@
-init & auth: 3h 30m + 30m = 4h
+init & auth: 4h
 orgs: 1h e 30m
  - create org
  - find org
-invites:
+invites: 2h e 30m
  - invite user
  - revoke invite
  - accept invite
-members:
+members: ESTIMATIVA 1h
  - change role of member
  - remove member
-apiKeys:
+apiKeys: ESTIMATIVA 2h e 30m
  - generate key
  - list keys (paginated)
  - revoke key
  - rotate key
-audit
+audit: ESTIMATIVA 1h e 30m
   - create log
   - get logs (paginated)
   - ORG_CREATED
@@ -26,12 +26,12 @@ audit
   - API_KEY_CREATED
   - API_KEY_REVOKED
   - API_KEY_ROTATED
-events:
+events: ESTIMATIVA 2h
  - create event - ratelimit
  - list events (paginated) - ratelimit
-usage:
+usage: ESTIMATIVA 1h e 30m
  - save rate limit in db
  - cron every 00:00
  - get usage by org
  - get usage by key
-/health
+/health ESTIMATIVA 15m

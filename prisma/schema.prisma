@@ -89,18 +89,15 @@ model Invite {
   tokenHash String @unique
 
   createdByUserId  String
-  createdAt        DateTime  @default(now())
+  createdBy User  @relation("InvitesCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict)
+
   acceptedAt       DateTime?
-  acceptedByUserId String?
 
   revokedAt       DateTime?
   revokedByUserId String?
-
-  createdBy User  @relation("InvitesCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict)
   revokedBy User? @relation("InvitesRevokedBy", fields: [revokedByUserId], references: [id], onDelete: SetNull)
 
-  @@index([orgId, createdAt])
-  @@index([orgId, userId])
+  createdAt        DateTime  @default(now())
 }
 
 model ApiKey {

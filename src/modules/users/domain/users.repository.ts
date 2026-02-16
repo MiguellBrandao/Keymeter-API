@@ -1,3 +1,5 @@
+import { AppError } from "../../../common/errors/AppError.js"
+import { Prisma } from "../../../common/prisma/generated/client.js"
 import type { PrismaClient, User } from "../../../common/prisma/generated/client.js"
 import type { CreateUser, FindUser } from "./users.types.js"
 
@@ -9,8 +11,19 @@ export interface UserRepository {
 export class PrismaUserRepository implements UserRepository {
     constructor(private prisma: PrismaClient) {}
 
-    createUser(data: CreateUser): Promise<User> {
-        return this.prisma.user.create({ data })
+    async createUser(data: CreateUser): Promise<User> {
+        try {
+            return await this.prisma.user.create({ data })
+        } catch (error) {
+            if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
+                throw new AppError({
+                    httpStatus: 409,
+                    message: "Email already in use",
+                })
+            }
+
+            throw error
+        }
     }
 
     findUser(data: FindUser): Promise<User | null> {

@@ -1,4 +1,4 @@
-import { hashPassword, verifyPassword } from '../../../common/auth/bcrypt.js';
+import { hashValue, verifyValue } from '../../../common/auth/bcrypt.js';
 import { generateAccessToken } from '../../../common/auth/jwt.js';
 import { AppError } from '../../../common/errors/AppError.js'
 import type { UsersService } from '../../users/domain/users.service.js'
@@ -14,7 +14,7 @@ export class AuthService {
             message: 'Email already in use'
         })
 
-        const hashedPassword = await hashPassword(body.password)
+        const hashedPassword = await hashValue(body.password)
 
         const user = await this.userService.createUser({ email: body.email, name: body.name, password: hashedPassword })
 
@@ -24,11 +24,11 @@ export class AuthService {
     async signIn(body: Signin) {
         const user = await this.userService.findUser({ email: body.email })
         if (!user) throw new AppError({
-            httpStatus: 404,
-            message: 'User not found'
+            httpStatus: 401,
+            message: "Invalid credentials.",
         })
 
-        const ok = await verifyPassword(body.password, user.password)
+        const ok = await verifyValue(body.password, user.password)
         if (!ok) {
             throw new AppError({
                 httpStatus: 401,
