@@ -27,3 +27,36 @@ export const EventType = {
 } as const
 
 export type EventType = (typeof EventType)[keyof typeof EventType]
+
+
+export const AuditAction = {
+  ORG_CREATED: 'ORG_CREATED',
+  INVITE_CREATED: 'INVITE_CREATED',
+  INVITE_REVOKED: 'INVITE_REVOKED',
+  MEMBER_ADDED: 'MEMBER_ADDED',
+  MEMBER_REMOVED: 'MEMBER_REMOVED',
+  MEMBER_ROLE_CHANGED: 'MEMBER_ROLE_CHANGED',
+  API_KEY_CREATED: 'API_KEY_CREATED',
+  API_KEY_REVOKED: 'API_KEY_REVOKED',
+  API_KEY_ROTATED: 'API_KEY_ROTATED'
+} as const
+
+export type AuditAction = (typeof AuditAction)[keyof typeof AuditAction]
+
+
+export const AuditActorType = {
+  USER: 'USER',
+  SYSTEM: 'SYSTEM'
+} as const
+
+export type AuditActorType = (typeof AuditActorType)[keyof typeof AuditActorType]
+
+
+export const AuditTargetType = {
+  org: 'org',
+  invite: 'invite',
+  member: 'member',
+  api_key: 'api_key'
+} as const
+
+export type AuditTargetType = (typeof AuditTargetType)[keyof typeof AuditTargetType]

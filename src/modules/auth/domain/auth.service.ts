@@ -1,7 +1,7 @@
 import { hashPassword, verifyPassword } from '../../../common/auth/bcrypt.js';
 import { generateAccessToken } from '../../../common/auth/jwt.js';
 import { AppError } from '../../../common/errors/AppError.js'
-import type { UsersService } from '../../users/domain/user.service.js'
+import type { UsersService } from '../../users/domain/users.service.js'
 import type { Signin, SignUp } from './auth.types.js';
 
 export class AuthService {

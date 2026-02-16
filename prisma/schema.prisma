@@ -13,7 +13,7 @@ datasource db {
   provider = "postgresql"
 }
 
-model Tenant {
+model Org {
   id String @id @default(uuid())
 
   name String
@@ -24,6 +24,7 @@ model Tenant {
   memberships MemberShip[]
   apiKeys     ApiKey[]
   events      Event[]
+  invites     Invite[]
 
   @@index([name])
 }
@@ -42,6 +43,10 @@ model User {
   memberships MemberShip[]
   apiKeys     ApiKey[]
 
+  createdInvites Invite[] @relation("InvitesCreatedBy")
+  revokedInvites Invite[] @relation("InvitesRevokedBy")
+  orgInvites     Invite[]
+
   @@unique([email])
 }
 
@@ -55,8 +60,8 @@ enum Role {
 model MemberShip {
   id String @id @default(uuid())
 
-  tenantId String
-  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  orgId String
+  org   Org    @relation(fields: [orgId], references: [id], onDelete: Cascade)
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -66,15 +71,43 @@ model MemberShip {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@unique([tenantId, userId])
-  @@index([tenantId, role])
+  @@unique([orgId, userId])
+  @@index([orgId, role])
+}
+
+model Invite {
+  id String @id @default(uuid())
+
+  orgId String
+  org   Org    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  role Role @default(MEMBER)
+
+  tokenHash String @unique
+
+  createdByUserId  String
+  createdAt        DateTime  @default(now())
+  acceptedAt       DateTime?
+  acceptedByUserId String?
+
+  revokedAt       DateTime?
+  revokedByUserId String?
+
+  createdBy User  @relation("InvitesCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  revokedBy User? @relation("InvitesRevokedBy", fields: [revokedByUserId], references: [id], onDelete: SetNull)
+
+  @@index([orgId, createdAt])
+  @@index([orgId, userId])
 }
 
 model ApiKey {
   id String @id @default(uuid())
 
-  tenantId String
-  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  orgId String
+  org   Org    @relation(fields: [orgId], references: [id], onDelete: Cascade)
 
   name   String
   scopes String[]
@@ -93,8 +126,8 @@ model ApiKey {
 
   events Event[]
 
-  @@index([tenantId, createdAt])
-  @@index([tenantId, revokedAt])
+  @@index([orgId, createdAt])
+  @@index([orgId, revokedAt])
 }
 
 enum EventType {
@@ -107,8 +140,8 @@ enum EventType {
 model Event {
   id String @id @default(uuid())
 
-  tenantId String
-  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  orgId String
+  org   Org    @relation(fields: [orgId], references: [id], onDelete: Cascade)
 
   apiKeyId String
   apiKey   ApiKey @relation(fields: [apiKeyId], references: [id])
@@ -121,4 +154,54 @@ model Event {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum AuditAction {
+  ORG_CREATED
+
+  INVITE_CREATED
+  INVITE_REVOKED
+
+  MEMBER_ADDED
+  MEMBER_REMOVED
+  MEMBER_ROLE_CHANGED
+
+  API_KEY_CREATED
+  API_KEY_REVOKED
+  API_KEY_ROTATED
+}
+
+enum AuditActorType {
+  USER
+  SYSTEM
+}
+
+enum AuditTargetType {
+  org
+  invite
+  member
+  api_key
+}
+
+model AuditLog {
+  id String @id @default(uuid())
+
+  orgId  String
+  action AuditAction
+
+  actorUserId String?
+  actorType   AuditActorType @default(USER)
+
+  targetType AuditTargetType?
+  targetId   String?
+
+  ip        String?
+  userAgent String?
+
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([orgId, createdAt])
+  @@index([orgId, action, createdAt])
+  @@index([orgId, targetType, targetId])
 }

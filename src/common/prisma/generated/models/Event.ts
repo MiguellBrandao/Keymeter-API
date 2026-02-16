@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.ts"
-import type * as Prisma from "../internal/prismaNamespace.ts"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model Event
@@ -26,7 +26,7 @@ export type AggregateEvent = {
 
 export type EventMinAggregateOutputType = {
   id: string | null
-  tenantId: string | null
+  orgId: string | null
   apiKeyId: string | null
   type: $Enums.EventType | null
   name: string | null
@@ -36,7 +36,7 @@ export type EventMinAggregateOutputType = {
 
 export type EventMaxAggregateOutputType = {
   id: string | null
-  tenantId: string | null
+  orgId: string | null
   apiKeyId: string | null
   type: $Enums.EventType | null
   name: string | null
@@ -46,7 +46,7 @@ export type EventMaxAggregateOutputType = {
 
 export type EventCountAggregateOutputType = {
   id: number
-  tenantId: number
+  orgId: number
   apiKeyId: number
   type: number
   name: number
@@ -59,7 +59,7 @@ export type EventCountAggregateOutputType = {
 
 export type EventMinAggregateInputType = {
   id?: true
-  tenantId?: true
+  orgId?: true
   apiKeyId?: true
   type?: true
   name?: true
@@ -69,7 +69,7 @@ export type EventMinAggregateInputType = {
 
 export type EventMaxAggregateInputType = {
   id?: true
-  tenantId?: true
+  orgId?: true
   apiKeyId?: true
   type?: true
   name?: true
@@ -79,7 +79,7 @@ export type EventMaxAggregateInputType = {
 
 export type EventCountAggregateInputType = {
   id?: true
-  tenantId?: true
+  orgId?: true
   apiKeyId?: true
   type?: true
   name?: true
@@ -163,7 +163,7 @@ export type EventGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type EventGroupByOutputType = {
   id: string
-  tenantId: string
+  orgId: string
   apiKeyId: string
   type: $Enums.EventType
   name: string | null
@@ -195,27 +195,27 @@ export type EventWhereInput = {
   OR?: Prisma.EventWhereInput[]
   NOT?: Prisma.EventWhereInput | Prisma.EventWhereInput[]
   id?: Prisma.StringFilter<"Event"> | string
-  tenantId?: Prisma.StringFilter<"Event"> | string
+  orgId?: Prisma.StringFilter<"Event"> | string
   apiKeyId?: Prisma.StringFilter<"Event"> | string
   type?: Prisma.EnumEventTypeFilter<"Event"> | $Enums.EventType
   name?: Prisma.StringNullableFilter<"Event"> | string | null
   properties?: Prisma.JsonFilter<"Event">
   createdAt?: Prisma.DateTimeFilter<"Event"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Event"> | Date | string
-  tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   apiKey?: Prisma.XOR<Prisma.ApiKeyScalarRelationFilter, Prisma.ApiKeyWhereInput>
 }
 
 export type EventOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   apiKeyId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   properties?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  tenant?: Prisma.TenantOrderByWithRelationInput
+  org?: Prisma.OrgOrderByWithRelationInput
   apiKey?: Prisma.ApiKeyOrderByWithRelationInput
 }
 
@@ -224,20 +224,20 @@ export type EventWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.EventWhereInput | Prisma.EventWhereInput[]
   OR?: Prisma.EventWhereInput[]
   NOT?: Prisma.EventWhereInput | Prisma.EventWhereInput[]
-  tenantId?: Prisma.StringFilter<"Event"> | string
+  orgId?: Prisma.StringFilter<"Event"> | string
   apiKeyId?: Prisma.StringFilter<"Event"> | string
   type?: Prisma.EnumEventTypeFilter<"Event"> | $Enums.EventType
   name?: Prisma.StringNullableFilter<"Event"> | string | null
   properties?: Prisma.JsonFilter<"Event">
   createdAt?: Prisma.DateTimeFilter<"Event"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Event"> | Date | string
-  tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   apiKey?: Prisma.XOR<Prisma.ApiKeyScalarRelationFilter, Prisma.ApiKeyWhereInput>
 }, "id">
 
 export type EventOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   apiKeyId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -254,7 +254,7 @@ export type EventScalarWhereWithAggregatesInput = {
   OR?: Prisma.EventScalarWhereWithAggregatesInput[]
   NOT?: Prisma.EventScalarWhereWithAggregatesInput | Prisma.EventScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Event"> | string
-  tenantId?: Prisma.StringWithAggregatesFilter<"Event"> | string
+  orgId?: Prisma.StringWithAggregatesFilter<"Event"> | string
   apiKeyId?: Prisma.StringWithAggregatesFilter<"Event"> | string
   type?: Prisma.EnumEventTypeWithAggregatesFilter<"Event"> | $Enums.EventType
   name?: Prisma.StringNullableWithAggregatesFilter<"Event"> | string | null
@@ -270,13 +270,13 @@ export type EventCreateInput = {
   properties: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
-  tenant: Prisma.TenantCreateNestedOneWithoutEventsInput
+  org: Prisma.OrgCreateNestedOneWithoutEventsInput
   apiKey: Prisma.ApiKeyCreateNestedOneWithoutEventsInput
 }
 
 export type EventUncheckedCreateInput = {
   id?: string
-  tenantId: string
+  orgId: string
   apiKeyId: string
   type?: $Enums.EventType
   name?: string | null
@@ -292,13 +292,13 @@ export type EventUpdateInput = {
   properties?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  tenant?: Prisma.TenantUpdateOneRequiredWithoutEventsNestedInput
+  org?: Prisma.OrgUpdateOneRequiredWithoutEventsNestedInput
   apiKey?: Prisma.ApiKeyUpdateOneRequiredWithoutEventsNestedInput
 }
 
 export type EventUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   apiKeyId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -309,7 +309,7 @@ export type EventUncheckedUpdateInput = {
 
 export type EventCreateManyInput = {
   id?: string
-  tenantId: string
+  orgId: string
   apiKeyId: string
   type?: $Enums.EventType
   name?: string | null
@@ -329,7 +329,7 @@ export type EventUpdateManyMutationInput = {
 
 export type EventUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   apiKeyId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -350,7 +350,7 @@ export type EventOrderByRelationAggregateInput = {
 
 export type EventCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   apiKeyId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -361,7 +361,7 @@ export type EventCountOrderByAggregateInput = {
 
 export type EventMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   apiKeyId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -371,7 +371,7 @@ export type EventMaxOrderByAggregateInput = {
 
 export type EventMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   apiKeyId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -379,45 +379,45 @@ export type EventMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type EventCreateNestedManyWithoutTenantInput = {
-  create?: Prisma.XOR<Prisma.EventCreateWithoutTenantInput, Prisma.EventUncheckedCreateWithoutTenantInput> | Prisma.EventCreateWithoutTenantInput[] | Prisma.EventUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.EventCreateOrConnectWithoutTenantInput | Prisma.EventCreateOrConnectWithoutTenantInput[]
-  createMany?: Prisma.EventCreateManyTenantInputEnvelope
+export type EventCreateNestedManyWithoutOrgInput = {
+  create?: Prisma.XOR<Prisma.EventCreateWithoutOrgInput, Prisma.EventUncheckedCreateWithoutOrgInput> | Prisma.EventCreateWithoutOrgInput[] | Prisma.EventUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.EventCreateOrConnectWithoutOrgInput | Prisma.EventCreateOrConnectWithoutOrgInput[]
+  createMany?: Prisma.EventCreateManyOrgInputEnvelope
   connect?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
 }
 
-export type EventUncheckedCreateNestedManyWithoutTenantInput = {
-  create?: Prisma.XOR<Prisma.EventCreateWithoutTenantInput, Prisma.EventUncheckedCreateWithoutTenantInput> | Prisma.EventCreateWithoutTenantInput[] | Prisma.EventUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.EventCreateOrConnectWithoutTenantInput | Prisma.EventCreateOrConnectWithoutTenantInput[]
-  createMany?: Prisma.EventCreateManyTenantInputEnvelope
+export type EventUncheckedCreateNestedManyWithoutOrgInput = {
+  create?: Prisma.XOR<Prisma.EventCreateWithoutOrgInput, Prisma.EventUncheckedCreateWithoutOrgInput> | Prisma.EventCreateWithoutOrgInput[] | Prisma.EventUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.EventCreateOrConnectWithoutOrgInput | Prisma.EventCreateOrConnectWithoutOrgInput[]
+  createMany?: Prisma.EventCreateManyOrgInputEnvelope
   connect?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
 }
 
-export type EventUpdateManyWithoutTenantNestedInput = {
-  create?: Prisma.XOR<Prisma.EventCreateWithoutTenantInput, Prisma.EventUncheckedCreateWithoutTenantInput> | Prisma.EventCreateWithoutTenantInput[] | Prisma.EventUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.EventCreateOrConnectWithoutTenantInput | Prisma.EventCreateOrConnectWithoutTenantInput[]
-  upsert?: Prisma.EventUpsertWithWhereUniqueWithoutTenantInput | Prisma.EventUpsertWithWhereUniqueWithoutTenantInput[]
-  createMany?: Prisma.EventCreateManyTenantInputEnvelope
+export type EventUpdateManyWithoutOrgNestedInput = {
+  create?: Prisma.XOR<Prisma.EventCreateWithoutOrgInput, Prisma.EventUncheckedCreateWithoutOrgInput> | Prisma.EventCreateWithoutOrgInput[] | Prisma.EventUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.EventCreateOrConnectWithoutOrgInput | Prisma.EventCreateOrConnectWithoutOrgInput[]
+  upsert?: Prisma.EventUpsertWithWhereUniqueWithoutOrgInput | Prisma.EventUpsertWithWhereUniqueWithoutOrgInput[]
+  createMany?: Prisma.EventCreateManyOrgInputEnvelope
   set?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
   disconnect?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
   delete?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
   connect?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
-  update?: Prisma.EventUpdateWithWhereUniqueWithoutTenantInput | Prisma.EventUpdateWithWhereUniqueWithoutTenantInput[]
-  updateMany?: Prisma.EventUpdateManyWithWhereWithoutTenantInput | Prisma.EventUpdateManyWithWhereWithoutTenantInput[]
+  update?: Prisma.EventUpdateWithWhereUniqueWithoutOrgInput | Prisma.EventUpdateWithWhereUniqueWithoutOrgInput[]
+  updateMany?: Prisma.EventUpdateManyWithWhereWithoutOrgInput | Prisma.EventUpdateManyWithWhereWithoutOrgInput[]
   deleteMany?: Prisma.EventScalarWhereInput | Prisma.EventScalarWhereInput[]
 }
 
-export type EventUncheckedUpdateManyWithoutTenantNestedInput = {
-  create?: Prisma.XOR<Prisma.EventCreateWithoutTenantInput, Prisma.EventUncheckedCreateWithoutTenantInput> | Prisma.EventCreateWithoutTenantInput[] | Prisma.EventUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.EventCreateOrConnectWithoutTenantInput | Prisma.EventCreateOrConnectWithoutTenantInput[]
-  upsert?: Prisma.EventUpsertWithWhereUniqueWithoutTenantInput | Prisma.EventUpsertWithWhereUniqueWithoutTenantInput[]
-  createMany?: Prisma.EventCreateManyTenantInputEnvelope
+export type EventUncheckedUpdateManyWithoutOrgNestedInput = {
+  create?: Prisma.XOR<Prisma.EventCreateWithoutOrgInput, Prisma.EventUncheckedCreateWithoutOrgInput> | Prisma.EventCreateWithoutOrgInput[] | Prisma.EventUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.EventCreateOrConnectWithoutOrgInput | Prisma.EventCreateOrConnectWithoutOrgInput[]
+  upsert?: Prisma.EventUpsertWithWhereUniqueWithoutOrgInput | Prisma.EventUpsertWithWhereUniqueWithoutOrgInput[]
+  createMany?: Prisma.EventCreateManyOrgInputEnvelope
   set?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
   disconnect?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
   delete?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
   connect?: Prisma.EventWhereUniqueInput | Prisma.EventWhereUniqueInput[]
-  update?: Prisma.EventUpdateWithWhereUniqueWithoutTenantInput | Prisma.EventUpdateWithWhereUniqueWithoutTenantInput[]
-  updateMany?: Prisma.EventUpdateManyWithWhereWithoutTenantInput | Prisma.EventUpdateManyWithWhereWithoutTenantInput[]
+  update?: Prisma.EventUpdateWithWhereUniqueWithoutOrgInput | Prisma.EventUpdateWithWhereUniqueWithoutOrgInput[]
+  updateMany?: Prisma.EventUpdateManyWithWhereWithoutOrgInput | Prisma.EventUpdateManyWithWhereWithoutOrgInput[]
   deleteMany?: Prisma.EventScalarWhereInput | Prisma.EventScalarWhereInput[]
 }
 
@@ -467,11 +467,7 @@ export type EnumEventTypeFieldUpdateOperationsInput = {
   set?: $Enums.EventType
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
-export type EventCreateWithoutTenantInput = {
+export type EventCreateWithoutOrgInput = {
   id?: string
   type?: $Enums.EventType
   name?: string | null
@@ -481,7 +477,7 @@ export type EventCreateWithoutTenantInput = {
   apiKey: Prisma.ApiKeyCreateNestedOneWithoutEventsInput
 }
 
-export type EventUncheckedCreateWithoutTenantInput = {
+export type EventUncheckedCreateWithoutOrgInput = {
   id?: string
   apiKeyId: string
   type?: $Enums.EventType
@@ -491,30 +487,30 @@ export type EventUncheckedCreateWithoutTenantInput = {
   updatedAt?: Date | string
 }
 
-export type EventCreateOrConnectWithoutTenantInput = {
+export type EventCreateOrConnectWithoutOrgInput = {
   where: Prisma.EventWhereUniqueInput
-  create: Prisma.XOR<Prisma.EventCreateWithoutTenantInput, Prisma.EventUncheckedCreateWithoutTenantInput>
+  create: Prisma.XOR<Prisma.EventCreateWithoutOrgInput, Prisma.EventUncheckedCreateWithoutOrgInput>
 }
 
-export type EventCreateManyTenantInputEnvelope = {
-  data: Prisma.EventCreateManyTenantInput | Prisma.EventCreateManyTenantInput[]
+export type EventCreateManyOrgInputEnvelope = {
+  data: Prisma.EventCreateManyOrgInput | Prisma.EventCreateManyOrgInput[]
   skipDuplicates?: boolean
 }
 
-export type EventUpsertWithWhereUniqueWithoutTenantInput = {
+export type EventUpsertWithWhereUniqueWithoutOrgInput = {
   where: Prisma.EventWhereUniqueInput
-  update: Prisma.XOR<Prisma.EventUpdateWithoutTenantInput, Prisma.EventUncheckedUpdateWithoutTenantInput>
-  create: Prisma.XOR<Prisma.EventCreateWithoutTenantInput, Prisma.EventUncheckedCreateWithoutTenantInput>
+  update: Prisma.XOR<Prisma.EventUpdateWithoutOrgInput, Prisma.EventUncheckedUpdateWithoutOrgInput>
+  create: Prisma.XOR<Prisma.EventCreateWithoutOrgInput, Prisma.EventUncheckedCreateWithoutOrgInput>
 }
 
-export type EventUpdateWithWhereUniqueWithoutTenantInput = {
+export type EventUpdateWithWhereUniqueWithoutOrgInput = {
   where: Prisma.EventWhereUniqueInput
-  data: Prisma.XOR<Prisma.EventUpdateWithoutTenantInput, Prisma.EventUncheckedUpdateWithoutTenantInput>
+  data: Prisma.XOR<Prisma.EventUpdateWithoutOrgInput, Prisma.EventUncheckedUpdateWithoutOrgInput>
 }
 
-export type EventUpdateManyWithWhereWithoutTenantInput = {
+export type EventUpdateManyWithWhereWithoutOrgInput = {
   where: Prisma.EventScalarWhereInput
-  data: Prisma.XOR<Prisma.EventUpdateManyMutationInput, Prisma.EventUncheckedUpdateManyWithoutTenantInput>
+  data: Prisma.XOR<Prisma.EventUpdateManyMutationInput, Prisma.EventUncheckedUpdateManyWithoutOrgInput>
 }
 
 export type EventScalarWhereInput = {
@@ -522,7 +518,7 @@ export type EventScalarWhereInput = {
   OR?: Prisma.EventScalarWhereInput[]
   NOT?: Prisma.EventScalarWhereInput | Prisma.EventScalarWhereInput[]
   id?: Prisma.StringFilter<"Event"> | string
-  tenantId?: Prisma.StringFilter<"Event"> | string
+  orgId?: Prisma.StringFilter<"Event"> | string
   apiKeyId?: Prisma.StringFilter<"Event"> | string
   type?: Prisma.EnumEventTypeFilter<"Event"> | $Enums.EventType
   name?: Prisma.StringNullableFilter<"Event"> | string | null
@@ -538,12 +534,12 @@ export type EventCreateWithoutApiKeyInput = {
   properties: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
-  tenant: Prisma.TenantCreateNestedOneWithoutEventsInput
+  org: Prisma.OrgCreateNestedOneWithoutEventsInput
 }
 
 export type EventUncheckedCreateWithoutApiKeyInput = {
   id?: string
-  tenantId: string
+  orgId: string
   type?: $Enums.EventType
   name?: string | null
   properties: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -577,7 +573,7 @@ export type EventUpdateManyWithWhereWithoutApiKeyInput = {
   data: Prisma.XOR<Prisma.EventUpdateManyMutationInput, Prisma.EventUncheckedUpdateManyWithoutApiKeyInput>
 }
 
-export type EventCreateManyTenantInput = {
+export type EventCreateManyOrgInput = {
   id?: string
   apiKeyId: string
   type?: $Enums.EventType
@@ -587,7 +583,7 @@ export type EventCreateManyTenantInput = {
   updatedAt?: Date | string
 }
 
-export type EventUpdateWithoutTenantInput = {
+export type EventUpdateWithoutOrgInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -597,7 +593,7 @@ export type EventUpdateWithoutTenantInput = {
   apiKey?: Prisma.ApiKeyUpdateOneRequiredWithoutEventsNestedInput
 }
 
-export type EventUncheckedUpdateWithoutTenantInput = {
+export type EventUncheckedUpdateWithoutOrgInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   apiKeyId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
@@ -607,7 +603,7 @@ export type EventUncheckedUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type EventUncheckedUpdateManyWithoutTenantInput = {
+export type EventUncheckedUpdateManyWithoutOrgInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   apiKeyId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
@@ -619,7 +615,7 @@ export type EventUncheckedUpdateManyWithoutTenantInput = {
 
 export type EventCreateManyApiKeyInput = {
   id?: string
-  tenantId: string
+  orgId: string
   type?: $Enums.EventType
   name?: string | null
   properties: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -634,12 +630,12 @@ export type EventUpdateWithoutApiKeyInput = {
   properties?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  tenant?: Prisma.TenantUpdateOneRequiredWithoutEventsNestedInput
+  org?: Prisma.OrgUpdateOneRequiredWithoutEventsNestedInput
 }
 
 export type EventUncheckedUpdateWithoutApiKeyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   properties?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -649,7 +645,7 @@ export type EventUncheckedUpdateWithoutApiKeyInput = {
 
 export type EventUncheckedUpdateManyWithoutApiKeyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   properties?: Prisma.JsonNullValueInput | runtime.InputJsonValue
@@ -661,46 +657,46 @@ export type EventUncheckedUpdateManyWithoutApiKeyInput = {
 
 export type EventSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   apiKeyId?: boolean
   type?: boolean
   name?: boolean
   properties?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   apiKey?: boolean | Prisma.ApiKeyDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["event"]>
 
 export type EventSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   apiKeyId?: boolean
   type?: boolean
   name?: boolean
   properties?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   apiKey?: boolean | Prisma.ApiKeyDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["event"]>
 
 export type EventSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   apiKeyId?: boolean
   type?: boolean
   name?: boolean
   properties?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   apiKey?: boolean | Prisma.ApiKeyDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["event"]>
 
 export type EventSelectScalar = {
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   apiKeyId?: boolean
   type?: boolean
   name?: boolean
@@ -709,29 +705,29 @@ export type EventSelectScalar = {
   updatedAt?: boolean
 }
 
-export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "apiKeyId" | "type" | "name" | "properties" | "createdAt" | "updatedAt", ExtArgs["result"]["event"]>
+export type EventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orgId" | "apiKeyId" | "type" | "name" | "properties" | "createdAt" | "updatedAt", ExtArgs["result"]["event"]>
 export type EventInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   apiKey?: boolean | Prisma.ApiKeyDefaultArgs<ExtArgs>
 }
 export type EventIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   apiKey?: boolean | Prisma.ApiKeyDefaultArgs<ExtArgs>
 }
 export type EventIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   apiKey?: boolean | Prisma.ApiKeyDefaultArgs<ExtArgs>
 }
 
 export type $EventPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Event"
   objects: {
-    tenant: Prisma.$TenantPayload<ExtArgs>
+    org: Prisma.$OrgPayload<ExtArgs>
     apiKey: Prisma.$ApiKeyPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    tenantId: string
+    orgId: string
     apiKeyId: string
     type: $Enums.EventType
     name: string | null
@@ -1132,7 +1128,7 @@ readonly fields: EventFieldRefs;
  */
 export interface Prisma__EventClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  org<T extends Prisma.OrgDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrgDefaultArgs<ExtArgs>>): Prisma.Prisma__OrgClient<runtime.Types.Result.GetResult<Prisma.$OrgPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   apiKey<T extends Prisma.ApiKeyDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApiKeyDefaultArgs<ExtArgs>>): Prisma.Prisma__ApiKeyClient<runtime.Types.Result.GetResult<Prisma.$ApiKeyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1164,7 +1160,7 @@ export interface Prisma__EventClient<T, Null = never, ExtArgs extends runtime.Ty
  */
 export interface EventFieldRefs {
   readonly id: Prisma.FieldRef<"Event", 'String'>
-  readonly tenantId: Prisma.FieldRef<"Event", 'String'>
+  readonly orgId: Prisma.FieldRef<"Event", 'String'>
   readonly apiKeyId: Prisma.FieldRef<"Event", 'String'>
   readonly type: Prisma.FieldRef<"Event", 'EventType'>
   readonly name: Prisma.FieldRef<"Event", 'String'>

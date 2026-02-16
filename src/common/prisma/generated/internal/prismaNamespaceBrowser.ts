@@ -17,8 +17,8 @@
 
 import * as runtime from "@prisma/client/runtime/index-browser"
 
-export type * from '../models.ts'
-export type * from './prismaNamespace.ts'
+export type * from '../models.js'
+export type * from './prismaNamespace.js'
 
 export const Decimal = runtime.Decimal
 
@@ -51,11 +51,13 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Tenant: 'Tenant',
+  Org: 'Org',
   User: 'User',
   MemberShip: 'MemberShip',
+  Invite: 'Invite',
   ApiKey: 'ApiKey',
-  Event: 'Event'
+  Event: 'Event',
+  AuditLog: 'AuditLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -74,14 +76,14 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const TenantScalarFieldEnum = {
+export const OrgScalarFieldEnum = {
   id: 'id',
   name: 'name',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type TenantScalarFieldEnum = (typeof TenantScalarFieldEnum)[keyof typeof TenantScalarFieldEnum]
+export type OrgScalarFieldEnum = (typeof OrgScalarFieldEnum)[keyof typeof OrgScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
@@ -98,7 +100,7 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const MemberShipScalarFieldEnum = {
   id: 'id',
-  tenantId: 'tenantId',
+  orgId: 'orgId',
   userId: 'userId',
   role: 'role',
   createdAt: 'createdAt',
@@ -108,9 +110,26 @@ export const MemberShipScalarFieldEnum = {
 export type MemberShipScalarFieldEnum = (typeof MemberShipScalarFieldEnum)[keyof typeof MemberShipScalarFieldEnum]
 
 
+export const InviteScalarFieldEnum = {
+  id: 'id',
+  orgId: 'orgId',
+  userId: 'userId',
+  role: 'role',
+  tokenHash: 'tokenHash',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  acceptedAt: 'acceptedAt',
+  acceptedByUserId: 'acceptedByUserId',
+  revokedAt: 'revokedAt',
+  revokedByUserId: 'revokedByUserId'
+} as const
+
+export type InviteScalarFieldEnum = (typeof InviteScalarFieldEnum)[keyof typeof InviteScalarFieldEnum]
+
+
 export const ApiKeyScalarFieldEnum = {
   id: 'id',
-  tenantId: 'tenantId',
+  orgId: 'orgId',
   name: 'name',
   scopes: 'scopes',
   keyPrefix: 'keyPrefix',
@@ -127,7 +146,7 @@ export type ApiKeyScalarFieldEnum = (typeof ApiKeyScalarFieldEnum)[keyof typeof 
 
 export const EventScalarFieldEnum = {
   id: 'id',
-  tenantId: 'tenantId',
+  orgId: 'orgId',
   apiKeyId: 'apiKeyId',
   type: 'type',
   name: 'name',
@@ -137,6 +156,23 @@ export const EventScalarFieldEnum = {
 } as const
 
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+
+
+export const AuditLogScalarFieldEnum = {
+  id: 'id',
+  orgId: 'orgId',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  actorType: 'actorType',
+  targetType: 'targetType',
+  targetId: 'targetId',
+  ip: 'ip',
+  userAgent: 'userAgent',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -152,6 +188,14 @@ export const JsonNullValueInput = {
 } as const
 
 export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const QueryMode = {

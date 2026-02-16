@@ -1,6 +1,6 @@
 import type { PrismaClient } from "../../common/prisma/generated/client.js"
-import { PrismaUserRepository } from "../users/domain/user.repository.js"
-import { UsersService } from "../users/domain/user.service.js"
+import { PrismaUserRepository } from "../users/domain/users.repository.js"
+import { UsersService } from "../users/domain/users.service.js"
 
 import { AuthService } from "./domain/auth.service.js"
 import { AuthController } from "./http/auth.controller.js"

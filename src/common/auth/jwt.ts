@@ -12,6 +12,6 @@ export function generateAccessToken(payload: JwtPayload) {
    return jwt.sign(payload, JWT_SECRET)
 }
 
-export function verifiyAccessToken(token: string) {
+export function verifyAccessToken(token: string) {
     return jwt.verify(token, JWT_SECRET)
 }

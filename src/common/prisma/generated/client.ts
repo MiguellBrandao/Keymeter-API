@@ -16,12 +16,12 @@ import { fileURLToPath } from 'node:url'
 globalThis['__dirname'] = path.dirname(fileURLToPath(import.meta.url))
 
 import * as runtime from "@prisma/client/runtime/client"
-import * as $Enums from "./enums.ts"
-import * as $Class from "./internal/class.ts"
-import * as Prisma from "./internal/prismaNamespace.ts"
+import * as $Enums from "./enums.js"
+import * as $Class from "./internal/class.js"
+import * as Prisma from "./internal/prismaNamespace.js"
 
-export * as $Enums from './enums.ts'
-export * from "./enums.ts"
+export * as $Enums from './enums.js'
+export * from "./enums.js"
 /**
  * ## Prisma Client
  * 
@@ -29,8 +29,8 @@ export * from "./enums.ts"
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Tenants
- * const tenants = await prisma.tenant.findMany()
+ * // Fetch zero or more Orgs
+ * const orgs = await prisma.org.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -40,10 +40,10 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model Tenant
+ * Model Org
  * 
  */
-export type Tenant = Prisma.TenantModel
+export type Org = Prisma.OrgModel
 /**
  * Model User
  * 
@@ -55,6 +55,11 @@ export type User = Prisma.UserModel
  */
 export type MemberShip = Prisma.MemberShipModel
 /**
+ * Model Invite
+ * 
+ */
+export type Invite = Prisma.InviteModel
+/**
  * Model ApiKey
  * 
  */
@@ -64,3 +69,8 @@ export type ApiKey = Prisma.ApiKeyModel
  * 
  */
 export type Event = Prisma.EventModel
+/**
+ * Model AuditLog
+ * 
+ */
+export type AuditLog = Prisma.AuditLogModel

@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.ts"
-import type * as Prisma from "../internal/prismaNamespace.ts"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model MemberShip
@@ -26,7 +26,7 @@ export type AggregateMemberShip = {
 
 export type MemberShipMinAggregateOutputType = {
   id: string | null
-  tenantId: string | null
+  orgId: string | null
   userId: string | null
   role: $Enums.Role | null
   createdAt: Date | null
@@ -35,7 +35,7 @@ export type MemberShipMinAggregateOutputType = {
 
 export type MemberShipMaxAggregateOutputType = {
   id: string | null
-  tenantId: string | null
+  orgId: string | null
   userId: string | null
   role: $Enums.Role | null
   createdAt: Date | null
@@ -44,7 +44,7 @@ export type MemberShipMaxAggregateOutputType = {
 
 export type MemberShipCountAggregateOutputType = {
   id: number
-  tenantId: number
+  orgId: number
   userId: number
   role: number
   createdAt: number
@@ -55,7 +55,7 @@ export type MemberShipCountAggregateOutputType = {
 
 export type MemberShipMinAggregateInputType = {
   id?: true
-  tenantId?: true
+  orgId?: true
   userId?: true
   role?: true
   createdAt?: true
@@ -64,7 +64,7 @@ export type MemberShipMinAggregateInputType = {
 
 export type MemberShipMaxAggregateInputType = {
   id?: true
-  tenantId?: true
+  orgId?: true
   userId?: true
   role?: true
   createdAt?: true
@@ -73,7 +73,7 @@ export type MemberShipMaxAggregateInputType = {
 
 export type MemberShipCountAggregateInputType = {
   id?: true
-  tenantId?: true
+  orgId?: true
   userId?: true
   role?: true
   createdAt?: true
@@ -155,7 +155,7 @@ export type MemberShipGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 
 export type MemberShipGroupByOutputType = {
   id: string
-  tenantId: string
+  orgId: string
   userId: string
   role: $Enums.Role
   createdAt: Date
@@ -185,44 +185,44 @@ export type MemberShipWhereInput = {
   OR?: Prisma.MemberShipWhereInput[]
   NOT?: Prisma.MemberShipWhereInput | Prisma.MemberShipWhereInput[]
   id?: Prisma.StringFilter<"MemberShip"> | string
-  tenantId?: Prisma.StringFilter<"MemberShip"> | string
+  orgId?: Prisma.StringFilter<"MemberShip"> | string
   userId?: Prisma.StringFilter<"MemberShip"> | string
   role?: Prisma.EnumRoleFilter<"MemberShip"> | $Enums.Role
   createdAt?: Prisma.DateTimeFilter<"MemberShip"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"MemberShip"> | Date | string
-  tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type MemberShipOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  tenant?: Prisma.TenantOrderByWithRelationInput
+  org?: Prisma.OrgOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type MemberShipWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  tenantId_userId?: Prisma.MemberShipTenantIdUserIdCompoundUniqueInput
+  orgId_userId?: Prisma.MemberShipOrgIdUserIdCompoundUniqueInput
   AND?: Prisma.MemberShipWhereInput | Prisma.MemberShipWhereInput[]
   OR?: Prisma.MemberShipWhereInput[]
   NOT?: Prisma.MemberShipWhereInput | Prisma.MemberShipWhereInput[]
-  tenantId?: Prisma.StringFilter<"MemberShip"> | string
+  orgId?: Prisma.StringFilter<"MemberShip"> | string
   userId?: Prisma.StringFilter<"MemberShip"> | string
   role?: Prisma.EnumRoleFilter<"MemberShip"> | $Enums.Role
   createdAt?: Prisma.DateTimeFilter<"MemberShip"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"MemberShip"> | Date | string
-  tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id" | "tenantId_userId">
+}, "id" | "orgId_userId">
 
 export type MemberShipOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -237,7 +237,7 @@ export type MemberShipScalarWhereWithAggregatesInput = {
   OR?: Prisma.MemberShipScalarWhereWithAggregatesInput[]
   NOT?: Prisma.MemberShipScalarWhereWithAggregatesInput | Prisma.MemberShipScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"MemberShip"> | string
-  tenantId?: Prisma.StringWithAggregatesFilter<"MemberShip"> | string
+  orgId?: Prisma.StringWithAggregatesFilter<"MemberShip"> | string
   userId?: Prisma.StringWithAggregatesFilter<"MemberShip"> | string
   role?: Prisma.EnumRoleWithAggregatesFilter<"MemberShip"> | $Enums.Role
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"MemberShip"> | Date | string
@@ -249,13 +249,13 @@ export type MemberShipCreateInput = {
   role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
-  tenant: Prisma.TenantCreateNestedOneWithoutMembershipsInput
+  org: Prisma.OrgCreateNestedOneWithoutMembershipsInput
   user: Prisma.UserCreateNestedOneWithoutMembershipsInput
 }
 
 export type MemberShipUncheckedCreateInput = {
   id?: string
-  tenantId: string
+  orgId: string
   userId: string
   role?: $Enums.Role
   createdAt?: Date | string
@@ -267,13 +267,13 @@ export type MemberShipUpdateInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  tenant?: Prisma.TenantUpdateOneRequiredWithoutMembershipsNestedInput
+  org?: Prisma.OrgUpdateOneRequiredWithoutMembershipsNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutMembershipsNestedInput
 }
 
 export type MemberShipUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -282,7 +282,7 @@ export type MemberShipUncheckedUpdateInput = {
 
 export type MemberShipCreateManyInput = {
   id?: string
-  tenantId: string
+  orgId: string
   userId: string
   role?: $Enums.Role
   createdAt?: Date | string
@@ -298,7 +298,7 @@ export type MemberShipUpdateManyMutationInput = {
 
 export type MemberShipUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -315,14 +315,14 @@ export type MemberShipOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type MemberShipTenantIdUserIdCompoundUniqueInput = {
-  tenantId: string
+export type MemberShipOrgIdUserIdCompoundUniqueInput = {
+  orgId: string
   userId: string
 }
 
 export type MemberShipCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -331,7 +331,7 @@ export type MemberShipCountOrderByAggregateInput = {
 
 export type MemberShipMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -340,52 +340,52 @@ export type MemberShipMaxOrderByAggregateInput = {
 
 export type MemberShipMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tenantId?: Prisma.SortOrder
+  orgId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
-export type MemberShipCreateNestedManyWithoutTenantInput = {
-  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutTenantInput, Prisma.MemberShipUncheckedCreateWithoutTenantInput> | Prisma.MemberShipCreateWithoutTenantInput[] | Prisma.MemberShipUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutTenantInput | Prisma.MemberShipCreateOrConnectWithoutTenantInput[]
-  createMany?: Prisma.MemberShipCreateManyTenantInputEnvelope
+export type MemberShipCreateNestedManyWithoutOrgInput = {
+  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutOrgInput, Prisma.MemberShipUncheckedCreateWithoutOrgInput> | Prisma.MemberShipCreateWithoutOrgInput[] | Prisma.MemberShipUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutOrgInput | Prisma.MemberShipCreateOrConnectWithoutOrgInput[]
+  createMany?: Prisma.MemberShipCreateManyOrgInputEnvelope
   connect?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
 }
 
-export type MemberShipUncheckedCreateNestedManyWithoutTenantInput = {
-  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutTenantInput, Prisma.MemberShipUncheckedCreateWithoutTenantInput> | Prisma.MemberShipCreateWithoutTenantInput[] | Prisma.MemberShipUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutTenantInput | Prisma.MemberShipCreateOrConnectWithoutTenantInput[]
-  createMany?: Prisma.MemberShipCreateManyTenantInputEnvelope
+export type MemberShipUncheckedCreateNestedManyWithoutOrgInput = {
+  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutOrgInput, Prisma.MemberShipUncheckedCreateWithoutOrgInput> | Prisma.MemberShipCreateWithoutOrgInput[] | Prisma.MemberShipUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutOrgInput | Prisma.MemberShipCreateOrConnectWithoutOrgInput[]
+  createMany?: Prisma.MemberShipCreateManyOrgInputEnvelope
   connect?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
 }
 
-export type MemberShipUpdateManyWithoutTenantNestedInput = {
-  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutTenantInput, Prisma.MemberShipUncheckedCreateWithoutTenantInput> | Prisma.MemberShipCreateWithoutTenantInput[] | Prisma.MemberShipUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutTenantInput | Prisma.MemberShipCreateOrConnectWithoutTenantInput[]
-  upsert?: Prisma.MemberShipUpsertWithWhereUniqueWithoutTenantInput | Prisma.MemberShipUpsertWithWhereUniqueWithoutTenantInput[]
-  createMany?: Prisma.MemberShipCreateManyTenantInputEnvelope
+export type MemberShipUpdateManyWithoutOrgNestedInput = {
+  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutOrgInput, Prisma.MemberShipUncheckedCreateWithoutOrgInput> | Prisma.MemberShipCreateWithoutOrgInput[] | Prisma.MemberShipUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutOrgInput | Prisma.MemberShipCreateOrConnectWithoutOrgInput[]
+  upsert?: Prisma.MemberShipUpsertWithWhereUniqueWithoutOrgInput | Prisma.MemberShipUpsertWithWhereUniqueWithoutOrgInput[]
+  createMany?: Prisma.MemberShipCreateManyOrgInputEnvelope
   set?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
   disconnect?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
   delete?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
   connect?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
-  update?: Prisma.MemberShipUpdateWithWhereUniqueWithoutTenantInput | Prisma.MemberShipUpdateWithWhereUniqueWithoutTenantInput[]
-  updateMany?: Prisma.MemberShipUpdateManyWithWhereWithoutTenantInput | Prisma.MemberShipUpdateManyWithWhereWithoutTenantInput[]
+  update?: Prisma.MemberShipUpdateWithWhereUniqueWithoutOrgInput | Prisma.MemberShipUpdateWithWhereUniqueWithoutOrgInput[]
+  updateMany?: Prisma.MemberShipUpdateManyWithWhereWithoutOrgInput | Prisma.MemberShipUpdateManyWithWhereWithoutOrgInput[]
   deleteMany?: Prisma.MemberShipScalarWhereInput | Prisma.MemberShipScalarWhereInput[]
 }
 
-export type MemberShipUncheckedUpdateManyWithoutTenantNestedInput = {
-  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutTenantInput, Prisma.MemberShipUncheckedCreateWithoutTenantInput> | Prisma.MemberShipCreateWithoutTenantInput[] | Prisma.MemberShipUncheckedCreateWithoutTenantInput[]
-  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutTenantInput | Prisma.MemberShipCreateOrConnectWithoutTenantInput[]
-  upsert?: Prisma.MemberShipUpsertWithWhereUniqueWithoutTenantInput | Prisma.MemberShipUpsertWithWhereUniqueWithoutTenantInput[]
-  createMany?: Prisma.MemberShipCreateManyTenantInputEnvelope
+export type MemberShipUncheckedUpdateManyWithoutOrgNestedInput = {
+  create?: Prisma.XOR<Prisma.MemberShipCreateWithoutOrgInput, Prisma.MemberShipUncheckedCreateWithoutOrgInput> | Prisma.MemberShipCreateWithoutOrgInput[] | Prisma.MemberShipUncheckedCreateWithoutOrgInput[]
+  connectOrCreate?: Prisma.MemberShipCreateOrConnectWithoutOrgInput | Prisma.MemberShipCreateOrConnectWithoutOrgInput[]
+  upsert?: Prisma.MemberShipUpsertWithWhereUniqueWithoutOrgInput | Prisma.MemberShipUpsertWithWhereUniqueWithoutOrgInput[]
+  createMany?: Prisma.MemberShipCreateManyOrgInputEnvelope
   set?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
   disconnect?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
   delete?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
   connect?: Prisma.MemberShipWhereUniqueInput | Prisma.MemberShipWhereUniqueInput[]
-  update?: Prisma.MemberShipUpdateWithWhereUniqueWithoutTenantInput | Prisma.MemberShipUpdateWithWhereUniqueWithoutTenantInput[]
-  updateMany?: Prisma.MemberShipUpdateManyWithWhereWithoutTenantInput | Prisma.MemberShipUpdateManyWithWhereWithoutTenantInput[]
+  update?: Prisma.MemberShipUpdateWithWhereUniqueWithoutOrgInput | Prisma.MemberShipUpdateWithWhereUniqueWithoutOrgInput[]
+  updateMany?: Prisma.MemberShipUpdateManyWithWhereWithoutOrgInput | Prisma.MemberShipUpdateManyWithWhereWithoutOrgInput[]
   deleteMany?: Prisma.MemberShipScalarWhereInput | Prisma.MemberShipScalarWhereInput[]
 }
 
@@ -435,7 +435,7 @@ export type EnumRoleFieldUpdateOperationsInput = {
   set?: $Enums.Role
 }
 
-export type MemberShipCreateWithoutTenantInput = {
+export type MemberShipCreateWithoutOrgInput = {
   id?: string
   role?: $Enums.Role
   createdAt?: Date | string
@@ -443,7 +443,7 @@ export type MemberShipCreateWithoutTenantInput = {
   user: Prisma.UserCreateNestedOneWithoutMembershipsInput
 }
 
-export type MemberShipUncheckedCreateWithoutTenantInput = {
+export type MemberShipUncheckedCreateWithoutOrgInput = {
   id?: string
   userId: string
   role?: $Enums.Role
@@ -451,30 +451,30 @@ export type MemberShipUncheckedCreateWithoutTenantInput = {
   updatedAt?: Date | string
 }
 
-export type MemberShipCreateOrConnectWithoutTenantInput = {
+export type MemberShipCreateOrConnectWithoutOrgInput = {
   where: Prisma.MemberShipWhereUniqueInput
-  create: Prisma.XOR<Prisma.MemberShipCreateWithoutTenantInput, Prisma.MemberShipUncheckedCreateWithoutTenantInput>
+  create: Prisma.XOR<Prisma.MemberShipCreateWithoutOrgInput, Prisma.MemberShipUncheckedCreateWithoutOrgInput>
 }
 
-export type MemberShipCreateManyTenantInputEnvelope = {
-  data: Prisma.MemberShipCreateManyTenantInput | Prisma.MemberShipCreateManyTenantInput[]
+export type MemberShipCreateManyOrgInputEnvelope = {
+  data: Prisma.MemberShipCreateManyOrgInput | Prisma.MemberShipCreateManyOrgInput[]
   skipDuplicates?: boolean
 }
 
-export type MemberShipUpsertWithWhereUniqueWithoutTenantInput = {
+export type MemberShipUpsertWithWhereUniqueWithoutOrgInput = {
   where: Prisma.MemberShipWhereUniqueInput
-  update: Prisma.XOR<Prisma.MemberShipUpdateWithoutTenantInput, Prisma.MemberShipUncheckedUpdateWithoutTenantInput>
-  create: Prisma.XOR<Prisma.MemberShipCreateWithoutTenantInput, Prisma.MemberShipUncheckedCreateWithoutTenantInput>
+  update: Prisma.XOR<Prisma.MemberShipUpdateWithoutOrgInput, Prisma.MemberShipUncheckedUpdateWithoutOrgInput>
+  create: Prisma.XOR<Prisma.MemberShipCreateWithoutOrgInput, Prisma.MemberShipUncheckedCreateWithoutOrgInput>
 }
 
-export type MemberShipUpdateWithWhereUniqueWithoutTenantInput = {
+export type MemberShipUpdateWithWhereUniqueWithoutOrgInput = {
   where: Prisma.MemberShipWhereUniqueInput
-  data: Prisma.XOR<Prisma.MemberShipUpdateWithoutTenantInput, Prisma.MemberShipUncheckedUpdateWithoutTenantInput>
+  data: Prisma.XOR<Prisma.MemberShipUpdateWithoutOrgInput, Prisma.MemberShipUncheckedUpdateWithoutOrgInput>
 }
 
-export type MemberShipUpdateManyWithWhereWithoutTenantInput = {
+export type MemberShipUpdateManyWithWhereWithoutOrgInput = {
   where: Prisma.MemberShipScalarWhereInput
-  data: Prisma.XOR<Prisma.MemberShipUpdateManyMutationInput, Prisma.MemberShipUncheckedUpdateManyWithoutTenantInput>
+  data: Prisma.XOR<Prisma.MemberShipUpdateManyMutationInput, Prisma.MemberShipUncheckedUpdateManyWithoutOrgInput>
 }
 
 export type MemberShipScalarWhereInput = {
@@ -482,7 +482,7 @@ export type MemberShipScalarWhereInput = {
   OR?: Prisma.MemberShipScalarWhereInput[]
   NOT?: Prisma.MemberShipScalarWhereInput | Prisma.MemberShipScalarWhereInput[]
   id?: Prisma.StringFilter<"MemberShip"> | string
-  tenantId?: Prisma.StringFilter<"MemberShip"> | string
+  orgId?: Prisma.StringFilter<"MemberShip"> | string
   userId?: Prisma.StringFilter<"MemberShip"> | string
   role?: Prisma.EnumRoleFilter<"MemberShip"> | $Enums.Role
   createdAt?: Prisma.DateTimeFilter<"MemberShip"> | Date | string
@@ -494,12 +494,12 @@ export type MemberShipCreateWithoutUserInput = {
   role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
-  tenant: Prisma.TenantCreateNestedOneWithoutMembershipsInput
+  org: Prisma.OrgCreateNestedOneWithoutMembershipsInput
 }
 
 export type MemberShipUncheckedCreateWithoutUserInput = {
   id?: string
-  tenantId: string
+  orgId: string
   role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -531,7 +531,7 @@ export type MemberShipUpdateManyWithWhereWithoutUserInput = {
   data: Prisma.XOR<Prisma.MemberShipUpdateManyMutationInput, Prisma.MemberShipUncheckedUpdateManyWithoutUserInput>
 }
 
-export type MemberShipCreateManyTenantInput = {
+export type MemberShipCreateManyOrgInput = {
   id?: string
   userId: string
   role?: $Enums.Role
@@ -539,7 +539,7 @@ export type MemberShipCreateManyTenantInput = {
   updatedAt?: Date | string
 }
 
-export type MemberShipUpdateWithoutTenantInput = {
+export type MemberShipUpdateWithoutOrgInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -547,7 +547,7 @@ export type MemberShipUpdateWithoutTenantInput = {
   user?: Prisma.UserUpdateOneRequiredWithoutMembershipsNestedInput
 }
 
-export type MemberShipUncheckedUpdateWithoutTenantInput = {
+export type MemberShipUncheckedUpdateWithoutOrgInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -555,7 +555,7 @@ export type MemberShipUncheckedUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type MemberShipUncheckedUpdateManyWithoutTenantInput = {
+export type MemberShipUncheckedUpdateManyWithoutOrgInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -565,7 +565,7 @@ export type MemberShipUncheckedUpdateManyWithoutTenantInput = {
 
 export type MemberShipCreateManyUserInput = {
   id?: string
-  tenantId: string
+  orgId: string
   role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -576,12 +576,12 @@ export type MemberShipUpdateWithoutUserInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  tenant?: Prisma.TenantUpdateOneRequiredWithoutMembershipsNestedInput
+  org?: Prisma.OrgUpdateOneRequiredWithoutMembershipsNestedInput
 }
 
 export type MemberShipUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -589,7 +589,7 @@ export type MemberShipUncheckedUpdateWithoutUserInput = {
 
 export type MemberShipUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -599,69 +599,69 @@ export type MemberShipUncheckedUpdateManyWithoutUserInput = {
 
 export type MemberShipSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   userId?: boolean
   role?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["memberShip"]>
 
 export type MemberShipSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   userId?: boolean
   role?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["memberShip"]>
 
 export type MemberShipSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   userId?: boolean
   role?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["memberShip"]>
 
 export type MemberShipSelectScalar = {
   id?: boolean
-  tenantId?: boolean
+  orgId?: boolean
   userId?: boolean
   role?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type MemberShipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "userId" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["memberShip"]>
+export type MemberShipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orgId" | "userId" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["memberShip"]>
 export type MemberShipInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type MemberShipIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type MemberShipIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $MemberShipPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "MemberShip"
   objects: {
-    tenant: Prisma.$TenantPayload<ExtArgs>
+    org: Prisma.$OrgPayload<ExtArgs>
     user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    tenantId: string
+    orgId: string
     userId: string
     role: $Enums.Role
     createdAt: Date
@@ -1060,7 +1060,7 @@ readonly fields: MemberShipFieldRefs;
  */
 export interface Prisma__MemberShipClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  org<T extends Prisma.OrgDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrgDefaultArgs<ExtArgs>>): Prisma.Prisma__OrgClient<runtime.Types.Result.GetResult<Prisma.$OrgPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1092,7 +1092,7 @@ export interface Prisma__MemberShipClient<T, Null = never, ExtArgs extends runti
  */
 export interface MemberShipFieldRefs {
   readonly id: Prisma.FieldRef<"MemberShip", 'String'>
-  readonly tenantId: Prisma.FieldRef<"MemberShip", 'String'>
+  readonly orgId: Prisma.FieldRef<"MemberShip", 'String'>
   readonly userId: Prisma.FieldRef<"MemberShip", 'String'>
   readonly role: Prisma.FieldRef<"MemberShip", 'Role'>
   readonly createdAt: Prisma.FieldRef<"MemberShip", 'DateTime'>

@@ -1,9 +1,9 @@
 import type { PrismaClient, User } from "../../../common/prisma/generated/client.js"
-import type { CreateUser, FindUser } from "./user.types.js"
+import type { CreateUser, FindUser } from "./users.types.js"
 
 export interface UserRepository {
     createUser(data: CreateUser): Promise<User>
-    findUser(params: FindUser): Promise<User | null>
+    findUser(data: FindUser): Promise<User | null>
 }
 
 export class PrismaUserRepository implements UserRepository {
@@ -13,13 +13,13 @@ export class PrismaUserRepository implements UserRepository {
         return this.prisma.user.create({ data })
     }
 
-    findUser(params: FindUser): Promise<User | null> {
-        if (params.id != null) {
-            return this.prisma.user.findUnique({ where: { id: params.id } })
+    findUser(data: FindUser): Promise<User | null> {
+        if (data.id != null) {
+            return this.prisma.user.findUnique({ where: { id: data.id } })
         }
 
-        if (params.email != null) {
-            return this.prisma.user.findUnique({ where: { email: params.email } })
+        if (data.email != null) {
+            return this.prisma.user.findUnique({ where: { email: data.email } })
         }
 
         return Promise.resolve(null)

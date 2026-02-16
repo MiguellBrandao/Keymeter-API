@@ -1,5 +1,5 @@
-import { UserRepository } from './user.repository.js';
-import { CreateUser, FindUser } from './user.types.js';
+import { UserRepository } from './users.repository.js';
+import { CreateUser, FindUser } from './users.types.js';
 
 export class UsersService {
     constructor(private usersRepository: UserRepository) {}
