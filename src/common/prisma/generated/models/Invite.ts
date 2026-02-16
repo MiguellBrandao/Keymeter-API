@@ -31,11 +31,10 @@ export type InviteMinAggregateOutputType = {
   role: $Enums.Role | null
   tokenHash: string | null
   createdByUserId: string | null
-  createdAt: Date | null
   acceptedAt: Date | null
-  acceptedByUserId: string | null
   revokedAt: Date | null
   revokedByUserId: string | null
+  createdAt: Date | null
 }
 
 export type InviteMaxAggregateOutputType = {
@@ -45,11 +44,10 @@ export type InviteMaxAggregateOutputType = {
   role: $Enums.Role | null
   tokenHash: string | null
   createdByUserId: string | null
-  createdAt: Date | null
   acceptedAt: Date | null
-  acceptedByUserId: string | null
   revokedAt: Date | null
   revokedByUserId: string | null
+  createdAt: Date | null
 }
 
 export type InviteCountAggregateOutputType = {
@@ -59,11 +57,10 @@ export type InviteCountAggregateOutputType = {
   role: number
   tokenHash: number
   createdByUserId: number
-  createdAt: number
   acceptedAt: number
-  acceptedByUserId: number
   revokedAt: number
   revokedByUserId: number
+  createdAt: number
   _all: number
 }
 
@@ -75,11 +72,10 @@ export type InviteMinAggregateInputType = {
   role?: true
   tokenHash?: true
   createdByUserId?: true
-  createdAt?: true
   acceptedAt?: true
-  acceptedByUserId?: true
   revokedAt?: true
   revokedByUserId?: true
+  createdAt?: true
 }
 
 export type InviteMaxAggregateInputType = {
@@ -89,11 +85,10 @@ export type InviteMaxAggregateInputType = {
   role?: true
   tokenHash?: true
   createdByUserId?: true
-  createdAt?: true
   acceptedAt?: true
-  acceptedByUserId?: true
   revokedAt?: true
   revokedByUserId?: true
+  createdAt?: true
 }
 
 export type InviteCountAggregateInputType = {
@@ -103,11 +98,10 @@ export type InviteCountAggregateInputType = {
   role?: true
   tokenHash?: true
   createdByUserId?: true
-  createdAt?: true
   acceptedAt?: true
-  acceptedByUserId?: true
   revokedAt?: true
   revokedByUserId?: true
+  createdAt?: true
   _all?: true
 }
 
@@ -190,11 +184,10 @@ export type InviteGroupByOutputType = {
   role: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt: Date
   acceptedAt: Date | null
-  acceptedByUserId: string | null
   revokedAt: Date | null
   revokedByUserId: string | null
+  createdAt: Date
   _count: InviteCountAggregateOutputType | null
   _min: InviteMinAggregateOutputType | null
   _max: InviteMaxAggregateOutputType | null
@@ -225,11 +218,10 @@ export type InviteWhereInput = {
   role?: Prisma.EnumRoleFilter<"Invite"> | $Enums.Role
   tokenHash?: Prisma.StringFilter<"Invite"> | string
   createdByUserId?: Prisma.StringFilter<"Invite"> | string
-  createdAt?: Prisma.DateTimeFilter<"Invite"> | Date | string
   acceptedAt?: Prisma.DateTimeNullableFilter<"Invite"> | Date | string | null
-  acceptedByUserId?: Prisma.StringNullableFilter<"Invite"> | string | null
   revokedAt?: Prisma.DateTimeNullableFilter<"Invite"> | Date | string | null
   revokedByUserId?: Prisma.StringNullableFilter<"Invite"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Invite"> | Date | string
   org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -243,11 +235,10 @@ export type InviteOrderByWithRelationInput = {
   role?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   acceptedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  acceptedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   revokedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   revokedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   org?: Prisma.OrgOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
   createdBy?: Prisma.UserOrderByWithRelationInput
@@ -264,11 +255,10 @@ export type InviteWhereUniqueInput = Prisma.AtLeast<{
   userId?: Prisma.StringFilter<"Invite"> | string
   role?: Prisma.EnumRoleFilter<"Invite"> | $Enums.Role
   createdByUserId?: Prisma.StringFilter<"Invite"> | string
-  createdAt?: Prisma.DateTimeFilter<"Invite"> | Date | string
   acceptedAt?: Prisma.DateTimeNullableFilter<"Invite"> | Date | string | null
-  acceptedByUserId?: Prisma.StringNullableFilter<"Invite"> | string | null
   revokedAt?: Prisma.DateTimeNullableFilter<"Invite"> | Date | string | null
   revokedByUserId?: Prisma.StringNullableFilter<"Invite"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Invite"> | Date | string
   org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -282,11 +272,10 @@ export type InviteOrderByWithAggregationInput = {
   role?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   acceptedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  acceptedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   revokedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   revokedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   _count?: Prisma.InviteCountOrderByAggregateInput
   _max?: Prisma.InviteMaxOrderByAggregateInput
   _min?: Prisma.InviteMinOrderByAggregateInput
@@ -302,21 +291,19 @@ export type InviteScalarWhereWithAggregatesInput = {
   role?: Prisma.EnumRoleWithAggregatesFilter<"Invite"> | $Enums.Role
   tokenHash?: Prisma.StringWithAggregatesFilter<"Invite"> | string
   createdByUserId?: Prisma.StringWithAggregatesFilter<"Invite"> | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Invite"> | Date | string
   acceptedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Invite"> | Date | string | null
-  acceptedByUserId?: Prisma.StringNullableWithAggregatesFilter<"Invite"> | string | null
   revokedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Invite"> | Date | string | null
   revokedByUserId?: Prisma.StringNullableWithAggregatesFilter<"Invite"> | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Invite"> | Date | string
 }
 
 export type InviteCreateInput = {
   id?: string
   role?: $Enums.Role
   tokenHash: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
+  createdAt?: Date | string
   org: Prisma.OrgCreateNestedOneWithoutInvitesInput
   user: Prisma.UserCreateNestedOneWithoutOrgInvitesInput
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedInvitesInput
@@ -330,21 +317,19 @@ export type InviteUncheckedCreateInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   org?: Prisma.OrgUpdateOneRequiredWithoutInvitesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutOrgInvitesNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedInvitesNestedInput
@@ -358,11 +343,10 @@ export type InviteUncheckedUpdateInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteCreateManyInput = {
@@ -372,21 +356,19 @@ export type InviteCreateManyInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteUncheckedUpdateManyInput = {
@@ -396,11 +378,10 @@ export type InviteUncheckedUpdateManyInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteListRelationFilter = {
@@ -420,11 +401,10 @@ export type InviteCountOrderByAggregateInput = {
   role?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   acceptedAt?: Prisma.SortOrder
-  acceptedByUserId?: Prisma.SortOrder
   revokedAt?: Prisma.SortOrder
   revokedByUserId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type InviteMaxOrderByAggregateInput = {
@@ -434,11 +414,10 @@ export type InviteMaxOrderByAggregateInput = {
   role?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   acceptedAt?: Prisma.SortOrder
-  acceptedByUserId?: Prisma.SortOrder
   revokedAt?: Prisma.SortOrder
   revokedByUserId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type InviteMinOrderByAggregateInput = {
@@ -448,11 +427,10 @@ export type InviteMinOrderByAggregateInput = {
   role?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
   acceptedAt?: Prisma.SortOrder
-  acceptedByUserId?: Prisma.SortOrder
   revokedAt?: Prisma.SortOrder
   revokedByUserId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type InviteCreateNestedManyWithoutOrgInput = {
@@ -635,10 +613,9 @@ export type InviteCreateWithoutOrgInput = {
   id?: string
   role?: $Enums.Role
   tokenHash: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
+  createdAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutOrgInvitesInput
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedInvitesInput
   revokedBy?: Prisma.UserCreateNestedOneWithoutRevokedInvitesInput
@@ -650,11 +627,10 @@ export type InviteUncheckedCreateWithoutOrgInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteCreateOrConnectWithoutOrgInput = {
@@ -693,21 +669,19 @@ export type InviteScalarWhereInput = {
   role?: Prisma.EnumRoleFilter<"Invite"> | $Enums.Role
   tokenHash?: Prisma.StringFilter<"Invite"> | string
   createdByUserId?: Prisma.StringFilter<"Invite"> | string
-  createdAt?: Prisma.DateTimeFilter<"Invite"> | Date | string
   acceptedAt?: Prisma.DateTimeNullableFilter<"Invite"> | Date | string | null
-  acceptedByUserId?: Prisma.StringNullableFilter<"Invite"> | string | null
   revokedAt?: Prisma.DateTimeNullableFilter<"Invite"> | Date | string | null
   revokedByUserId?: Prisma.StringNullableFilter<"Invite"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Invite"> | Date | string
 }
 
 export type InviteCreateWithoutCreatedByInput = {
   id?: string
   role?: $Enums.Role
   tokenHash: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
+  createdAt?: Date | string
   org: Prisma.OrgCreateNestedOneWithoutInvitesInput
   user: Prisma.UserCreateNestedOneWithoutOrgInvitesInput
   revokedBy?: Prisma.UserCreateNestedOneWithoutRevokedInvitesInput
@@ -719,11 +693,10 @@ export type InviteUncheckedCreateWithoutCreatedByInput = {
   userId: string
   role?: $Enums.Role
   tokenHash: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteCreateOrConnectWithoutCreatedByInput = {
@@ -740,10 +713,9 @@ export type InviteCreateWithoutRevokedByInput = {
   id?: string
   role?: $Enums.Role
   tokenHash: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
+  createdAt?: Date | string
   org: Prisma.OrgCreateNestedOneWithoutInvitesInput
   user: Prisma.UserCreateNestedOneWithoutOrgInvitesInput
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedInvitesInput
@@ -756,10 +728,9 @@ export type InviteUncheckedCreateWithoutRevokedByInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
+  createdAt?: Date | string
 }
 
 export type InviteCreateOrConnectWithoutRevokedByInput = {
@@ -776,10 +747,9 @@ export type InviteCreateWithoutUserInput = {
   id?: string
   role?: $Enums.Role
   tokenHash: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
+  createdAt?: Date | string
   org: Prisma.OrgCreateNestedOneWithoutInvitesInput
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedInvitesInput
   revokedBy?: Prisma.UserCreateNestedOneWithoutRevokedInvitesInput
@@ -791,11 +761,10 @@ export type InviteUncheckedCreateWithoutUserInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteCreateOrConnectWithoutUserInput = {
@@ -862,21 +831,19 @@ export type InviteCreateManyOrgInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteUpdateWithoutOrgInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutOrgInvitesNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedInvitesNestedInput
   revokedBy?: Prisma.UserUpdateOneWithoutRevokedInvitesNestedInput
@@ -888,11 +855,10 @@ export type InviteUncheckedUpdateWithoutOrgInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteUncheckedUpdateManyWithoutOrgInput = {
@@ -901,11 +867,10 @@ export type InviteUncheckedUpdateManyWithoutOrgInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteCreateManyCreatedByInput = {
@@ -914,11 +879,10 @@ export type InviteCreateManyCreatedByInput = {
   userId: string
   role?: $Enums.Role
   tokenHash: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteCreateManyRevokedByInput = {
@@ -928,10 +892,9 @@ export type InviteCreateManyRevokedByInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
+  createdAt?: Date | string
 }
 
 export type InviteCreateManyUserInput = {
@@ -940,21 +903,19 @@ export type InviteCreateManyUserInput = {
   role?: $Enums.Role
   tokenHash: string
   createdByUserId: string
-  createdAt?: Date | string
   acceptedAt?: Date | string | null
-  acceptedByUserId?: string | null
   revokedAt?: Date | string | null
   revokedByUserId?: string | null
+  createdAt?: Date | string
 }
 
 export type InviteUpdateWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   org?: Prisma.OrgUpdateOneRequiredWithoutInvitesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutOrgInvitesNestedInput
   revokedBy?: Prisma.UserUpdateOneWithoutRevokedInvitesNestedInput
@@ -966,11 +927,10 @@ export type InviteUncheckedUpdateWithoutCreatedByInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteUncheckedUpdateManyWithoutCreatedByInput = {
@@ -979,21 +939,19 @@ export type InviteUncheckedUpdateManyWithoutCreatedByInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteUpdateWithoutRevokedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   org?: Prisma.OrgUpdateOneRequiredWithoutInvitesNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutOrgInvitesNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedInvitesNestedInput
@@ -1006,10 +964,9 @@ export type InviteUncheckedUpdateWithoutRevokedByInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteUncheckedUpdateManyWithoutRevokedByInput = {
@@ -1019,20 +976,18 @@ export type InviteUncheckedUpdateManyWithoutRevokedByInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   org?: Prisma.OrgUpdateOneRequiredWithoutInvitesNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedInvitesNestedInput
   revokedBy?: Prisma.UserUpdateOneWithoutRevokedInvitesNestedInput
@@ -1044,11 +999,10 @@ export type InviteUncheckedUpdateWithoutUserInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type InviteUncheckedUpdateManyWithoutUserInput = {
@@ -1057,11 +1011,10 @@ export type InviteUncheckedUpdateManyWithoutUserInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   acceptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  acceptedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   revokedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1073,11 +1026,10 @@ export type InviteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   role?: boolean
   tokenHash?: boolean
   createdByUserId?: boolean
-  createdAt?: boolean
   acceptedAt?: boolean
-  acceptedByUserId?: boolean
   revokedAt?: boolean
   revokedByUserId?: boolean
+  createdAt?: boolean
   org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1091,11 +1043,10 @@ export type InviteSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   role?: boolean
   tokenHash?: boolean
   createdByUserId?: boolean
-  createdAt?: boolean
   acceptedAt?: boolean
-  acceptedByUserId?: boolean
   revokedAt?: boolean
   revokedByUserId?: boolean
+  createdAt?: boolean
   org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1109,11 +1060,10 @@ export type InviteSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   role?: boolean
   tokenHash?: boolean
   createdByUserId?: boolean
-  createdAt?: boolean
   acceptedAt?: boolean
-  acceptedByUserId?: boolean
   revokedAt?: boolean
   revokedByUserId?: boolean
+  createdAt?: boolean
   org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1127,14 +1077,13 @@ export type InviteSelectScalar = {
   role?: boolean
   tokenHash?: boolean
   createdByUserId?: boolean
-  createdAt?: boolean
   acceptedAt?: boolean
-  acceptedByUserId?: boolean
   revokedAt?: boolean
   revokedByUserId?: boolean
+  createdAt?: boolean
 }
 
-export type InviteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orgId" | "userId" | "role" | "tokenHash" | "createdByUserId" | "createdAt" | "acceptedAt" | "acceptedByUserId" | "revokedAt" | "revokedByUserId", ExtArgs["result"]["invite"]>
+export type InviteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orgId" | "userId" | "role" | "tokenHash" | "createdByUserId" | "acceptedAt" | "revokedAt" | "revokedByUserId" | "createdAt", ExtArgs["result"]["invite"]>
 export type InviteInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1169,11 +1118,10 @@ export type $InvitePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     role: $Enums.Role
     tokenHash: string
     createdByUserId: string
-    createdAt: Date
     acceptedAt: Date | null
-    acceptedByUserId: string | null
     revokedAt: Date | null
     revokedByUserId: string | null
+    createdAt: Date
   }, ExtArgs["result"]["invite"]>
   composites: {}
 }
@@ -1607,11 +1555,10 @@ export interface InviteFieldRefs {
   readonly role: Prisma.FieldRef<"Invite", 'Role'>
   readonly tokenHash: Prisma.FieldRef<"Invite", 'String'>
   readonly createdByUserId: Prisma.FieldRef<"Invite", 'String'>
-  readonly createdAt: Prisma.FieldRef<"Invite", 'DateTime'>
   readonly acceptedAt: Prisma.FieldRef<"Invite", 'DateTime'>
-  readonly acceptedByUserId: Prisma.FieldRef<"Invite", 'String'>
   readonly revokedAt: Prisma.FieldRef<"Invite", 'DateTime'>
   readonly revokedByUserId: Prisma.FieldRef<"Invite", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Invite", 'DateTime'>
 }
     
 

@@ -7,7 +7,6 @@ export const InviteAcceptedDto = {
       orgId: invite.orgId,
       userId: invite.userId,
       acceptedAt: invite.acceptedAt,
-      acceptedByUserId: invite.acceptedByUserId,
     }
   },
 }

@@ -1,8 +1,9 @@
 import { randomBytes } from "node:crypto";
 import { AppError } from "../../../common/errors/AppError.js";
 import type { Invite, Prisma, PrismaClient } from "../../../common/prisma/generated/client.js";
-import { Role } from "../../../common/prisma/generated/enums.js";
+import { AuditAction, AuditTargetType, Role } from "../../../common/prisma/generated/enums.js";
 import { PrismaMembersRepository } from "../../members/domain/members.repository.js";
+import type { AuditService } from "../../audit/domain/audit.service.js";
 import type { UsersService } from "../../users/domain/users.service.js";
 import { PrismaInvitesRepository, type InvitesRepository } from "./invites.repository.js";
 import type { AcceptInvite, CreateInvite, InviteUser, RevokeInvite } from "./invites.type.js";
@@ -14,7 +15,8 @@ export class InvitesService {
     constructor(
         private prisma: PrismaClient,
         private invitesRepository: InvitesRepository,
-        private usersService: UsersService
+        private usersService: UsersService,
+        private auditService: AuditService
     ) {}
 
     async generateInviteTokenPair(): Promise<TokenPair> {
@@ -38,7 +40,7 @@ export class InvitesService {
             message: 'User invited not found'
         })
 
-        return await this.prisma.$transaction(async(tx: Prisma.TransactionClient) => {
+        const invite = await this.prisma.$transaction(async(tx: Prisma.TransactionClient) => {
             const invitesRepository = new PrismaInvitesRepository(tx)
             const membersRepository = new PrismaMembersRepository(tx)
 
@@ -94,6 +96,17 @@ export class InvitesService {
 
             return await invitesRepository.create(createData)
         })
+
+        await this.auditService.log({
+            orgId: invite.orgId,
+            action: AuditAction.INVITE_CREATED,
+            actorUserId: data.createdByUserId,
+            targetType: AuditTargetType.invite,
+            targetId: invite.id,
+            metadata: { userId: invite.userId, role: invite.role },
+        })
+
+        return invite
     }
 
     async revokeInvite(data: RevokeInvite) {
@@ -107,11 +120,21 @@ export class InvitesService {
             message: 'Invite already revoked'
         })
 
-        return await this.invitesRepository.revoke(data)
+        const revoked = await this.invitesRepository.revoke(data)
+
+        await this.auditService.log({
+            orgId: revoked.orgId,
+            action: AuditAction.INVITE_REVOKED,
+            actorUserId: data.byUserId,
+            targetType: AuditTargetType.invite,
+            targetId: revoked.id,
+        })
+
+        return revoked
     }
 
     async acceptInvite(data: AcceptInvite) {
-        return await this.prisma.$transaction(async(tx: Prisma.TransactionClient) => {
+        const acceptedInvite = await this.prisma.$transaction(async(tx: Prisma.TransactionClient) => {
             const invitesRepository = new PrismaInvitesRepository(tx)
             const membersRepository = new PrismaMembersRepository(tx)
 
@@ -184,5 +207,16 @@ export class InvitesService {
 
             return updatedInvite
         })
+
+        await this.auditService.log({
+            orgId: acceptedInvite.orgId,
+            action: AuditAction.MEMBER_ADDED,
+            actorUserId: data.byUserId,
+            targetType: AuditTargetType.member,
+            targetId: `${acceptedInvite.orgId}:${acceptedInvite.userId}`,
+            metadata: { role: acceptedInvite.role, via: "invite_accept" },
+        })
+
+        return acceptedInvite
     }
 }

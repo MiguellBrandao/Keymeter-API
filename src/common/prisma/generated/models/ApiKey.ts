@@ -250,13 +250,13 @@ export type ApiKeyOrderByWithRelationInput = {
 
 export type ApiKeyWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  keyPrefix?: string
   AND?: Prisma.ApiKeyWhereInput | Prisma.ApiKeyWhereInput[]
   OR?: Prisma.ApiKeyWhereInput[]
   NOT?: Prisma.ApiKeyWhereInput | Prisma.ApiKeyWhereInput[]
   orgId?: Prisma.StringFilter<"ApiKey"> | string
   name?: Prisma.StringFilter<"ApiKey"> | string
   scopes?: Prisma.StringNullableListFilter<"ApiKey">
-  keyPrefix?: Prisma.StringFilter<"ApiKey"> | string
   keyHash?: Prisma.StringFilter<"ApiKey"> | string
   revokedAt?: Prisma.DateTimeNullableFilter<"ApiKey"> | Date | string | null
   lastUsedAt?: Prisma.DateTimeNullableFilter<"ApiKey"> | Date | string | null
@@ -266,7 +266,7 @@ export type ApiKeyWhereUniqueInput = Prisma.AtLeast<{
   org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   createdByUser?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   events?: Prisma.EventListRelationFilter
-}, "id">
+}, "id" | "keyPrefix">
 
 export type ApiKeyOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

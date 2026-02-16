@@ -117,11 +117,10 @@ export const InviteScalarFieldEnum = {
   role: 'role',
   tokenHash: 'tokenHash',
   createdByUserId: 'createdByUserId',
-  createdAt: 'createdAt',
   acceptedAt: 'acceptedAt',
-  acceptedByUserId: 'acceptedByUserId',
   revokedAt: 'revokedAt',
-  revokedByUserId: 'revokedByUserId'
+  revokedByUserId: 'revokedByUserId',
+  createdAt: 'createdAt'
 } as const
 
 export type InviteScalarFieldEnum = (typeof InviteScalarFieldEnum)[keyof typeof InviteScalarFieldEnum]

@@ -123,6 +123,7 @@ model ApiKey {
 
   events Event[]
 
+  @@unique([keyPrefix])
   @@index([orgId, createdAt])
   @@index([orgId, revokedAt])
 }

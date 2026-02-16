@@ -11,7 +11,7 @@ import type { OrgIdParamDto } from "./validation/org-id-param.schema.js"
 export class MembersController {
     constructor(private membersService: MembersService) {}
 
-    changeRoleOfUser = async (req: Request<{ orgId: string }, {}, ChangeRoleDto>, res: Response) => {
+    changeRoleOfUser = async (req: Request<OrgIdParamDto, {}, ChangeRoleDto>, res: Response) => {
         if (!req.user) throw new AppError({ httpStatus: 401, message: "Unauthorized" })
         const params = req.validatedParams as OrgIdParamDto | undefined
         if (!params?.orgId) throw new AppError({ httpStatus: 400, message: "Missing orgId route param." })

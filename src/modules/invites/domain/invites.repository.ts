@@ -41,7 +41,6 @@ export class PrismaInvitesRepository implements InvitesRepository {
         return this.prisma.invite.update({
             data: {
                 acceptedAt: new Date(),
-                acceptedByUserId: data.byUserId,
             },
             where: { id: data.inviteId }
         })
@@ -56,7 +55,6 @@ export class PrismaInvitesRepository implements InvitesRepository {
             },
             data: {
                 acceptedAt: new Date(),
-                acceptedByUserId: data.byUserId,
             },
         })
 

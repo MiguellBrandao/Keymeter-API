@@ -9,7 +9,7 @@ invites: 2h e 30m
 members: 30m
  - change role of member
  - remove member
-apiKeys: ESTIMATIVA 2h e 30m
+apiKeys: 1h e 30m
  - generate key
  - list keys (paginated)
  - revoke key
@@ -26,7 +26,7 @@ audit: ESTIMATIVA 1h e 30m
   - API_KEY_CREATED
   - API_KEY_REVOKED
   - API_KEY_ROTATED
-events: ESTIMATIVA 2h
+events: ESTIMATIVA 2h ESTUDAR REDIS
  - create event - ratelimit
  - list events (paginated) - ratelimit
 usage: ESTIMATIVA 1h e 30m
