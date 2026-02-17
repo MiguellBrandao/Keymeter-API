@@ -1039,7 +1039,6 @@ export const EventScalarFieldEnum = {
   orgId: 'orgId',
   apiKeyId: 'apiKeyId',
   type: 'type',
-  name: 'name',
   properties: 'properties',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

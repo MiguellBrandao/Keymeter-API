@@ -146,8 +146,6 @@ model Event {
 
   type EventType @default(CUSTOM)
 
-  name String?
-
   properties Json
 
   createdAt DateTime @default(now())

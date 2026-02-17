@@ -9,6 +9,13 @@ declare global {
 
     interface Request {
       user?: User
+      apiKey?: {
+        id: string
+        orgId: string
+        scopes: string[]
+        keyPrefix: string
+        name: string
+      }
       validatedQuery?: Record<string, unknown>
       validatedParams?: Record<string, unknown>
     }

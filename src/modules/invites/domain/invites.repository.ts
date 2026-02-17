@@ -28,6 +28,7 @@ export class PrismaInvitesRepository implements InvitesRepository {
             where: {
                 orgId: data.orgId,
                 userId: data.userId,
+                acceptedAt: null,
                 revokedAt: null,
             }
         })
