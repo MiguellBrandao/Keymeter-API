@@ -1,0 +1,571 @@
+{
+  "info": {
+    "_postman_id": "31ad2804-8026-486d-879e-223e6ae2dbb5",
+    "name": "Keymeter",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45296149",
+    "_collection_link": "https://go.postman.co/collection/45296149-31ad2804-8026-486d-879e-223e6ae2dbb5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "SignIn",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"miguellbdefault@gmail.com\",\r\n    \"password\": \"Reactapp2107.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/signin",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "signin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SignUp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"miguellbwork@gmail.com\",\r\n    \"password\": \"Reactapp2107.\",\r\n    \"name\": \"Miguellb Trabalho\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orgs",
+      "item": [
+        {
+          "name": "Create Org",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Default3\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/orgs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Orgs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/orgs/my",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs",
+                "my"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Invites",
+      "item": [
+        {
+          "name": "Create Invite",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"orgId\": \"b13236a4-496e-43b6-8125-8e7a9e9162ec\",\r\n  \"userId\": \"eee0936d-2192-4d8c-91a8-309d20a9bbd9\",\r\n  \"role\": \"MEMBER\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/invites",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "invites"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invite Accept",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/invites/accept?token=PUIxHEmTbDsNw1OhEQhu8g&inviteId=3ea0ff61-63e9-47dc-a7e6-73d00ce9869f",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "invites",
+                "accept"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "PUIxHEmTbDsNw1OhEQhu8g"
+                },
+                {
+                  "key": "inviteId",
+                  "value": "3ea0ff61-63e9-47dc-a7e6-73d00ce9869f"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Revoke Invite",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"inviteId\": \"621e1f32-9122-49e0-ba2a-ae466af61f66\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/invites/revoke",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "invites",
+                "revoke"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Change Role of Member",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"userId\": \"eee0936d-2192-4d8c-91a8-309d20a9bbd9\", \r\n    \"role\": \"ADMIN\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/orgs/b13236a4-496e-43b6-8125-8e7a9e9162ec/member",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs",
+                "b13236a4-496e-43b6-8125-8e7a9e9162ec",
+                "member"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Member",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/orgs/b13236a4-496e-43b6-8125-8e7a9e9162ec/member/eee0936d-2192-4d8c-91a8-309d20a9bbd9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs",
+                "b13236a4-496e-43b6-8125-8e7a9e9162ec",
+                "member",
+                "eee0936d-2192-4d8c-91a8-309d20a9bbd9"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ApiKeys",
+      "item": [
+        {
+          "name": "Create ApiKey",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Postman Key\",\r\n  \"scopes\": [\"events:read\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/orgs/b13236a4-496e-43b6-8125-8e7a9e9162ec/api-keys",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs",
+                "b13236a4-496e-43b6-8125-8e7a9e9162ec",
+                "api-keys"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get ApiKeys",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/orgs/b13236a4-496e-43b6-8125-8e7a9e9162ec/api-keys?page=1&limit=20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs",
+                "b13236a4-496e-43b6-8125-8e7a9e9162ec",
+                "api-keys"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Revoke ApiKey",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"keyPrefix\": \"km_live_k4li4jlk\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/orgs/b13236a4-496e-43b6-8125-8e7a9e9162ec/api-keys/revoke",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs",
+                "b13236a4-496e-43b6-8125-8e7a9e9162ec",
+                "api-keys",
+                "revoke"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Rotate ApiKey",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Events (By API)",
+      "item": [
+        {
+          "name": "Create Event",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "km_live_h_-7uOlT.1uX2lP0MHbzUv-emPsKACdP-tRAZLaLTJyV-hfNksrw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"type\": \"TRACK\",\r\n  \"properties\": {\r\n    \"eventName\": \"button_clicked\",\r\n    \"page\": \"/pricing\",\r\n    \"buttonId\": \"cta-start-trial\",\r\n    \"plan\": \"pro\",\r\n    \"source\": \"landing-page\",\r\n    \"sessionId\": \"sess_123456\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/v1/events",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "v1",
+                "events"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Events",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "km_live_cIxuyqI6.6RrbpK7Dymbva0SXxO3QepUmya34RTiPyNXHvJ7Rx34",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/v1/events?page=2&limit=20&type=TRACK",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "v1",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "type",
+                  "value": "TRACK"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Usage",
+      "item": [
+        {
+          "name": "Get Usage",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Postman Key\",\r\n  \"scopes\": [\"events:write\", \"events:read\"]\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/orgs/b13236a4-496e-43b6-8125-8e7a9e9162ec/usage?page=1&limit=10&from=2026-02-01T00:00:00.000Z&to=2026-02-17T23:59:59.999Z",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orgs",
+                "b13236a4-496e-43b6-8125-8e7a9e9162ec",
+                "usage"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "from",
+                  "value": "2026-02-01T00:00:00.000Z"
+                },
+                {
+                  "key": "to",
+                  "value": "2026-02-17T23:59:59.999Z"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{TestToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "TestToken",
+      "value": ""
+    }
+  ]
+}
