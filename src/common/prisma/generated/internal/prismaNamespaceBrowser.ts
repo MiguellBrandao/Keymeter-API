@@ -56,6 +56,7 @@ export const ModelName = {
   MemberShip: 'MemberShip',
   Invite: 'Invite',
   ApiKey: 'ApiKey',
+  UsageDaily: 'UsageDaily',
   Event: 'Event',
   AuditLog: 'AuditLog'
 } as const
@@ -141,6 +142,19 @@ export const ApiKeyScalarFieldEnum = {
 } as const
 
 export type ApiKeyScalarFieldEnum = (typeof ApiKeyScalarFieldEnum)[keyof typeof ApiKeyScalarFieldEnum]
+
+
+export const UsageDailyScalarFieldEnum = {
+  id: 'id',
+  orgId: 'orgId',
+  apiKeyId: 'apiKeyId',
+  day: 'day',
+  eventsCount: 'eventsCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UsageDailyScalarFieldEnum = (typeof UsageDailyScalarFieldEnum)[keyof typeof UsageDailyScalarFieldEnum]
 
 
 export const EventScalarFieldEnum = {

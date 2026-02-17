@@ -389,6 +389,7 @@ export const ModelName = {
   MemberShip: 'MemberShip',
   Invite: 'Invite',
   ApiKey: 'ApiKey',
+  UsageDaily: 'UsageDaily',
   Event: 'Event',
   AuditLog: 'AuditLog'
 } as const
@@ -406,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "org" | "user" | "memberShip" | "invite" | "apiKey" | "event" | "auditLog"
+    modelProps: "org" | "user" | "memberShip" | "invite" | "apiKey" | "usageDaily" | "event" | "auditLog"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -780,6 +781,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    UsageDaily: {
+      payload: Prisma.$UsageDailyPayload<ExtArgs>
+      fields: Prisma.UsageDailyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UsageDailyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UsageDailyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>
+        }
+        findFirst: {
+          args: Prisma.UsageDailyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UsageDailyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>
+        }
+        findMany: {
+          args: Prisma.UsageDailyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>[]
+        }
+        create: {
+          args: Prisma.UsageDailyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>
+        }
+        createMany: {
+          args: Prisma.UsageDailyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UsageDailyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>[]
+        }
+        delete: {
+          args: Prisma.UsageDailyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>
+        }
+        update: {
+          args: Prisma.UsageDailyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>
+        }
+        deleteMany: {
+          args: Prisma.UsageDailyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UsageDailyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UsageDailyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>[]
+        }
+        upsert: {
+          args: Prisma.UsageDailyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageDailyPayload>
+        }
+        aggregate: {
+          args: Prisma.UsageDailyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUsageDaily>
+        }
+        groupBy: {
+          args: Prisma.UsageDailyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsageDailyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UsageDailyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsageDailyCountAggregateOutputType> | number
+        }
+      }
+    }
     Event: {
       payload: Prisma.$EventPayload<ExtArgs>
       fields: Prisma.EventFieldRefs
@@ -1034,6 +1109,19 @@ export const ApiKeyScalarFieldEnum = {
 export type ApiKeyScalarFieldEnum = (typeof ApiKeyScalarFieldEnum)[keyof typeof ApiKeyScalarFieldEnum]
 
 
+export const UsageDailyScalarFieldEnum = {
+  id: 'id',
+  orgId: 'orgId',
+  apiKeyId: 'apiKeyId',
+  day: 'day',
+  eventsCount: 'eventsCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UsageDailyScalarFieldEnum = (typeof UsageDailyScalarFieldEnum)[keyof typeof UsageDailyScalarFieldEnum]
+
+
 export const EventScalarFieldEnum = {
   id: 'id',
   orgId: 'orgId',
@@ -1161,6 +1249,20 @@ export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
+ * Reference to a field of type 'Int'
+ */
+export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Int[]'
+ */
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
  * Reference to a field of type 'EventType'
  */
 export type EnumEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EventType'>
@@ -1231,16 +1333,16 @@ export type ListEnumAuditTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputTy
 
 
 /**
- * Reference to a field of type 'Int'
+ * Reference to a field of type 'Float'
  */
-export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
 
 
 /**
- * Reference to a field of type 'Int[]'
+ * Reference to a field of type 'Float[]'
  */
-export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -1343,6 +1445,7 @@ export type GlobalOmitConfig = {
   memberShip?: Prisma.MemberShipOmit
   invite?: Prisma.InviteOmit
   apiKey?: Prisma.ApiKeyOmit
+  usageDaily?: Prisma.UsageDailyOmit
   event?: Prisma.EventOmit
   auditLog?: Prisma.AuditLogOmit
 }

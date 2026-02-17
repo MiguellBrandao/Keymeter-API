@@ -229,6 +229,7 @@ export type ApiKeyWhereInput = {
   org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   createdByUser?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   events?: Prisma.EventListRelationFilter
+  usageDaily?: Prisma.UsageDailyListRelationFilter
 }
 
 export type ApiKeyOrderByWithRelationInput = {
@@ -246,6 +247,7 @@ export type ApiKeyOrderByWithRelationInput = {
   org?: Prisma.OrgOrderByWithRelationInput
   createdByUser?: Prisma.UserOrderByWithRelationInput
   events?: Prisma.EventOrderByRelationAggregateInput
+  usageDaily?: Prisma.UsageDailyOrderByRelationAggregateInput
 }
 
 export type ApiKeyWhereUniqueInput = Prisma.AtLeast<{
@@ -266,6 +268,7 @@ export type ApiKeyWhereUniqueInput = Prisma.AtLeast<{
   org?: Prisma.XOR<Prisma.OrgScalarRelationFilter, Prisma.OrgWhereInput>
   createdByUser?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   events?: Prisma.EventListRelationFilter
+  usageDaily?: Prisma.UsageDailyListRelationFilter
 }, "id" | "keyPrefix">
 
 export type ApiKeyOrderByWithAggregationInput = {
@@ -315,6 +318,7 @@ export type ApiKeyCreateInput = {
   org: Prisma.OrgCreateNestedOneWithoutApiKeysInput
   createdByUser: Prisma.UserCreateNestedOneWithoutApiKeysInput
   events?: Prisma.EventCreateNestedManyWithoutApiKeyInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyUncheckedCreateInput = {
@@ -330,6 +334,7 @@ export type ApiKeyUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   events?: Prisma.EventUncheckedCreateNestedManyWithoutApiKeyInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyUpdateInput = {
@@ -345,6 +350,7 @@ export type ApiKeyUpdateInput = {
   org?: Prisma.OrgUpdateOneRequiredWithoutApiKeysNestedInput
   createdByUser?: Prisma.UserUpdateOneRequiredWithoutApiKeysNestedInput
   events?: Prisma.EventUpdateManyWithoutApiKeyNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyUncheckedUpdateInput = {
@@ -360,6 +366,7 @@ export type ApiKeyUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   events?: Prisma.EventUncheckedUpdateManyWithoutApiKeyNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyCreateManyInput = {
@@ -558,6 +565,20 @@ export type ApiKeyUpdatescopesInput = {
   push?: string | string[]
 }
 
+export type ApiKeyCreateNestedOneWithoutUsageDailyInput = {
+  create?: Prisma.XOR<Prisma.ApiKeyCreateWithoutUsageDailyInput, Prisma.ApiKeyUncheckedCreateWithoutUsageDailyInput>
+  connectOrCreate?: Prisma.ApiKeyCreateOrConnectWithoutUsageDailyInput
+  connect?: Prisma.ApiKeyWhereUniqueInput
+}
+
+export type ApiKeyUpdateOneRequiredWithoutUsageDailyNestedInput = {
+  create?: Prisma.XOR<Prisma.ApiKeyCreateWithoutUsageDailyInput, Prisma.ApiKeyUncheckedCreateWithoutUsageDailyInput>
+  connectOrCreate?: Prisma.ApiKeyCreateOrConnectWithoutUsageDailyInput
+  upsert?: Prisma.ApiKeyUpsertWithoutUsageDailyInput
+  connect?: Prisma.ApiKeyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ApiKeyUpdateToOneWithWhereWithoutUsageDailyInput, Prisma.ApiKeyUpdateWithoutUsageDailyInput>, Prisma.ApiKeyUncheckedUpdateWithoutUsageDailyInput>
+}
+
 export type ApiKeyCreateNestedOneWithoutEventsInput = {
   create?: Prisma.XOR<Prisma.ApiKeyCreateWithoutEventsInput, Prisma.ApiKeyUncheckedCreateWithoutEventsInput>
   connectOrCreate?: Prisma.ApiKeyCreateOrConnectWithoutEventsInput
@@ -584,6 +605,7 @@ export type ApiKeyCreateWithoutOrgInput = {
   updatedAt?: Date | string
   createdByUser: Prisma.UserCreateNestedOneWithoutApiKeysInput
   events?: Prisma.EventCreateNestedManyWithoutApiKeyInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyUncheckedCreateWithoutOrgInput = {
@@ -598,6 +620,7 @@ export type ApiKeyUncheckedCreateWithoutOrgInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   events?: Prisma.EventUncheckedCreateNestedManyWithoutApiKeyInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyCreateOrConnectWithoutOrgInput = {
@@ -655,6 +678,7 @@ export type ApiKeyCreateWithoutCreatedByUserInput = {
   updatedAt?: Date | string
   org: Prisma.OrgCreateNestedOneWithoutApiKeysInput
   events?: Prisma.EventCreateNestedManyWithoutApiKeyInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyUncheckedCreateWithoutCreatedByUserInput = {
@@ -669,6 +693,7 @@ export type ApiKeyUncheckedCreateWithoutCreatedByUserInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   events?: Prisma.EventUncheckedCreateNestedManyWithoutApiKeyInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyCreateOrConnectWithoutCreatedByUserInput = {
@@ -697,6 +722,82 @@ export type ApiKeyUpdateManyWithWhereWithoutCreatedByUserInput = {
   data: Prisma.XOR<Prisma.ApiKeyUpdateManyMutationInput, Prisma.ApiKeyUncheckedUpdateManyWithoutCreatedByUserInput>
 }
 
+export type ApiKeyCreateWithoutUsageDailyInput = {
+  id?: string
+  name: string
+  scopes?: Prisma.ApiKeyCreatescopesInput | string[]
+  keyPrefix: string
+  keyHash: string
+  revokedAt?: Date | string | null
+  lastUsedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  org: Prisma.OrgCreateNestedOneWithoutApiKeysInput
+  createdByUser: Prisma.UserCreateNestedOneWithoutApiKeysInput
+  events?: Prisma.EventCreateNestedManyWithoutApiKeyInput
+}
+
+export type ApiKeyUncheckedCreateWithoutUsageDailyInput = {
+  id?: string
+  orgId: string
+  name: string
+  scopes?: Prisma.ApiKeyCreatescopesInput | string[]
+  keyPrefix: string
+  keyHash: string
+  revokedAt?: Date | string | null
+  lastUsedAt?: Date | string | null
+  createByUserId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  events?: Prisma.EventUncheckedCreateNestedManyWithoutApiKeyInput
+}
+
+export type ApiKeyCreateOrConnectWithoutUsageDailyInput = {
+  where: Prisma.ApiKeyWhereUniqueInput
+  create: Prisma.XOR<Prisma.ApiKeyCreateWithoutUsageDailyInput, Prisma.ApiKeyUncheckedCreateWithoutUsageDailyInput>
+}
+
+export type ApiKeyUpsertWithoutUsageDailyInput = {
+  update: Prisma.XOR<Prisma.ApiKeyUpdateWithoutUsageDailyInput, Prisma.ApiKeyUncheckedUpdateWithoutUsageDailyInput>
+  create: Prisma.XOR<Prisma.ApiKeyCreateWithoutUsageDailyInput, Prisma.ApiKeyUncheckedCreateWithoutUsageDailyInput>
+  where?: Prisma.ApiKeyWhereInput
+}
+
+export type ApiKeyUpdateToOneWithWhereWithoutUsageDailyInput = {
+  where?: Prisma.ApiKeyWhereInput
+  data: Prisma.XOR<Prisma.ApiKeyUpdateWithoutUsageDailyInput, Prisma.ApiKeyUncheckedUpdateWithoutUsageDailyInput>
+}
+
+export type ApiKeyUpdateWithoutUsageDailyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  scopes?: Prisma.ApiKeyUpdatescopesInput | string[]
+  keyPrefix?: Prisma.StringFieldUpdateOperationsInput | string
+  keyHash?: Prisma.StringFieldUpdateOperationsInput | string
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  org?: Prisma.OrgUpdateOneRequiredWithoutApiKeysNestedInput
+  createdByUser?: Prisma.UserUpdateOneRequiredWithoutApiKeysNestedInput
+  events?: Prisma.EventUpdateManyWithoutApiKeyNestedInput
+}
+
+export type ApiKeyUncheckedUpdateWithoutUsageDailyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  orgId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  scopes?: Prisma.ApiKeyUpdatescopesInput | string[]
+  keyPrefix?: Prisma.StringFieldUpdateOperationsInput | string
+  keyHash?: Prisma.StringFieldUpdateOperationsInput | string
+  revokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  events?: Prisma.EventUncheckedUpdateManyWithoutApiKeyNestedInput
+}
+
 export type ApiKeyCreateWithoutEventsInput = {
   id?: string
   name: string
@@ -709,6 +810,7 @@ export type ApiKeyCreateWithoutEventsInput = {
   updatedAt?: Date | string
   org: Prisma.OrgCreateNestedOneWithoutApiKeysInput
   createdByUser: Prisma.UserCreateNestedOneWithoutApiKeysInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyUncheckedCreateWithoutEventsInput = {
@@ -723,6 +825,7 @@ export type ApiKeyUncheckedCreateWithoutEventsInput = {
   createByUserId: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutApiKeyInput
 }
 
 export type ApiKeyCreateOrConnectWithoutEventsInput = {
@@ -753,6 +856,7 @@ export type ApiKeyUpdateWithoutEventsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   org?: Prisma.OrgUpdateOneRequiredWithoutApiKeysNestedInput
   createdByUser?: Prisma.UserUpdateOneRequiredWithoutApiKeysNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyUncheckedUpdateWithoutEventsInput = {
@@ -767,6 +871,7 @@ export type ApiKeyUncheckedUpdateWithoutEventsInput = {
   createByUserId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyCreateManyOrgInput = {
@@ -794,6 +899,7 @@ export type ApiKeyUpdateWithoutOrgInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdByUser?: Prisma.UserUpdateOneRequiredWithoutApiKeysNestedInput
   events?: Prisma.EventUpdateManyWithoutApiKeyNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyUncheckedUpdateWithoutOrgInput = {
@@ -808,6 +914,7 @@ export type ApiKeyUncheckedUpdateWithoutOrgInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   events?: Prisma.EventUncheckedUpdateManyWithoutApiKeyNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyUncheckedUpdateManyWithoutOrgInput = {
@@ -848,6 +955,7 @@ export type ApiKeyUpdateWithoutCreatedByUserInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   org?: Prisma.OrgUpdateOneRequiredWithoutApiKeysNestedInput
   events?: Prisma.EventUpdateManyWithoutApiKeyNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyUncheckedUpdateWithoutCreatedByUserInput = {
@@ -862,6 +970,7 @@ export type ApiKeyUncheckedUpdateWithoutCreatedByUserInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   events?: Prisma.EventUncheckedUpdateManyWithoutApiKeyNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutApiKeyNestedInput
 }
 
 export type ApiKeyUncheckedUpdateManyWithoutCreatedByUserInput = {
@@ -884,10 +993,12 @@ export type ApiKeyUncheckedUpdateManyWithoutCreatedByUserInput = {
 
 export type ApiKeyCountOutputType = {
   events: number
+  usageDaily: number
 }
 
 export type ApiKeyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   events?: boolean | ApiKeyCountOutputTypeCountEventsArgs
+  usageDaily?: boolean | ApiKeyCountOutputTypeCountUsageDailyArgs
 }
 
 /**
@@ -907,6 +1018,13 @@ export type ApiKeyCountOutputTypeCountEventsArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.EventWhereInput
 }
 
+/**
+ * ApiKeyCountOutputType without action
+ */
+export type ApiKeyCountOutputTypeCountUsageDailyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UsageDailyWhereInput
+}
+
 
 export type ApiKeySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -923,6 +1041,7 @@ export type ApiKeySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   createdByUser?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   events?: boolean | Prisma.ApiKey$eventsArgs<ExtArgs>
+  usageDaily?: boolean | Prisma.ApiKey$usageDailyArgs<ExtArgs>
   _count?: boolean | Prisma.ApiKeyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["apiKey"]>
 
@@ -977,6 +1096,7 @@ export type ApiKeyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   org?: boolean | Prisma.OrgDefaultArgs<ExtArgs>
   createdByUser?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   events?: boolean | Prisma.ApiKey$eventsArgs<ExtArgs>
+  usageDaily?: boolean | Prisma.ApiKey$usageDailyArgs<ExtArgs>
   _count?: boolean | Prisma.ApiKeyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ApiKeyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -994,6 +1114,7 @@ export type $ApiKeyPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     org: Prisma.$OrgPayload<ExtArgs>
     createdByUser: Prisma.$UserPayload<ExtArgs>
     events: Prisma.$EventPayload<ExtArgs>[]
+    usageDaily: Prisma.$UsageDailyPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1404,6 +1525,7 @@ export interface Prisma__ApiKeyClient<T, Null = never, ExtArgs extends runtime.T
   org<T extends Prisma.OrgDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrgDefaultArgs<ExtArgs>>): Prisma.Prisma__OrgClient<runtime.Types.Result.GetResult<Prisma.$OrgPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   createdByUser<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   events<T extends Prisma.ApiKey$eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApiKey$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  usageDaily<T extends Prisma.ApiKey$usageDailyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApiKey$usageDailyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UsageDailyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1861,6 +1983,30 @@ export type ApiKey$eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.EventScalarFieldEnum | Prisma.EventScalarFieldEnum[]
+}
+
+/**
+ * ApiKey.usageDaily
+ */
+export type ApiKey$usageDailyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsageDaily
+   */
+  select?: Prisma.UsageDailySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UsageDaily
+   */
+  omit?: Prisma.UsageDailyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsageDailyInclude<ExtArgs> | null
+  where?: Prisma.UsageDailyWhereInput
+  orderBy?: Prisma.UsageDailyOrderByWithRelationInput | Prisma.UsageDailyOrderByWithRelationInput[]
+  cursor?: Prisma.UsageDailyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.UsageDailyScalarFieldEnum | Prisma.UsageDailyScalarFieldEnum[]
 }
 
 /**

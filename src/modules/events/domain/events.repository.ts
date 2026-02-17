@@ -9,8 +9,36 @@ export interface EventsRepository {
 export class PrismaEventsRepository implements EventsRepository {
     constructor(private prisma: PrismaClient) {}
 
-    create(data: CreateEvent): Promise<Event> {
-        return this.prisma.event.create({ data });
+    async create(data: CreateEvent): Promise<Event> {
+        const day = new Date()
+        day.setUTCHours(0, 0, 0, 0)
+
+        const created = await this.prisma.$transaction(async (tx) => {
+            const event = await tx.event.create({ data })
+
+            await tx.usageDaily.upsert({
+                where: {
+                    orgId_apiKeyId_day: {
+                        orgId: data.orgId,
+                        apiKeyId: data.apiKeyId,
+                        day,
+                    },
+                },
+                create: {
+                    orgId: data.orgId,
+                    apiKeyId: data.apiKeyId,
+                    day,
+                    eventsCount: 1,
+                },
+                update: {
+                    eventsCount: { increment: 1 },
+                },
+            })
+
+            return event
+        })
+
+        return created
     }
 
     find(data: FindEvents): Promise<Event[]> {

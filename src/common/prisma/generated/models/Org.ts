@@ -177,6 +177,7 @@ export type OrgWhereInput = {
   memberships?: Prisma.MemberShipListRelationFilter
   apiKeys?: Prisma.ApiKeyListRelationFilter
   events?: Prisma.EventListRelationFilter
+  usageDaily?: Prisma.UsageDailyListRelationFilter
   invites?: Prisma.InviteListRelationFilter
 }
 
@@ -188,6 +189,7 @@ export type OrgOrderByWithRelationInput = {
   memberships?: Prisma.MemberShipOrderByRelationAggregateInput
   apiKeys?: Prisma.ApiKeyOrderByRelationAggregateInput
   events?: Prisma.EventOrderByRelationAggregateInput
+  usageDaily?: Prisma.UsageDailyOrderByRelationAggregateInput
   invites?: Prisma.InviteOrderByRelationAggregateInput
 }
 
@@ -202,6 +204,7 @@ export type OrgWhereUniqueInput = Prisma.AtLeast<{
   memberships?: Prisma.MemberShipListRelationFilter
   apiKeys?: Prisma.ApiKeyListRelationFilter
   events?: Prisma.EventListRelationFilter
+  usageDaily?: Prisma.UsageDailyListRelationFilter
   invites?: Prisma.InviteListRelationFilter
 }, "id">
 
@@ -233,6 +236,7 @@ export type OrgCreateInput = {
   memberships?: Prisma.MemberShipCreateNestedManyWithoutOrgInput
   apiKeys?: Prisma.ApiKeyCreateNestedManyWithoutOrgInput
   events?: Prisma.EventCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteCreateNestedManyWithoutOrgInput
 }
 
@@ -244,6 +248,7 @@ export type OrgUncheckedCreateInput = {
   memberships?: Prisma.MemberShipUncheckedCreateNestedManyWithoutOrgInput
   apiKeys?: Prisma.ApiKeyUncheckedCreateNestedManyWithoutOrgInput
   events?: Prisma.EventUncheckedCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteUncheckedCreateNestedManyWithoutOrgInput
 }
 
@@ -255,6 +260,7 @@ export type OrgUpdateInput = {
   memberships?: Prisma.MemberShipUpdateManyWithoutOrgNestedInput
   apiKeys?: Prisma.ApiKeyUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUpdateManyWithoutOrgNestedInput
 }
 
@@ -266,6 +272,7 @@ export type OrgUncheckedUpdateInput = {
   memberships?: Prisma.MemberShipUncheckedUpdateManyWithoutOrgNestedInput
   apiKeys?: Prisma.ApiKeyUncheckedUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUncheckedUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUncheckedUpdateManyWithoutOrgNestedInput
 }
 
@@ -366,6 +373,20 @@ export type OrgUpdateOneRequiredWithoutApiKeysNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrgUpdateToOneWithWhereWithoutApiKeysInput, Prisma.OrgUpdateWithoutApiKeysInput>, Prisma.OrgUncheckedUpdateWithoutApiKeysInput>
 }
 
+export type OrgCreateNestedOneWithoutUsageDailyInput = {
+  create?: Prisma.XOR<Prisma.OrgCreateWithoutUsageDailyInput, Prisma.OrgUncheckedCreateWithoutUsageDailyInput>
+  connectOrCreate?: Prisma.OrgCreateOrConnectWithoutUsageDailyInput
+  connect?: Prisma.OrgWhereUniqueInput
+}
+
+export type OrgUpdateOneRequiredWithoutUsageDailyNestedInput = {
+  create?: Prisma.XOR<Prisma.OrgCreateWithoutUsageDailyInput, Prisma.OrgUncheckedCreateWithoutUsageDailyInput>
+  connectOrCreate?: Prisma.OrgCreateOrConnectWithoutUsageDailyInput
+  upsert?: Prisma.OrgUpsertWithoutUsageDailyInput
+  connect?: Prisma.OrgWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrgUpdateToOneWithWhereWithoutUsageDailyInput, Prisma.OrgUpdateWithoutUsageDailyInput>, Prisma.OrgUncheckedUpdateWithoutUsageDailyInput>
+}
+
 export type OrgCreateNestedOneWithoutEventsInput = {
   create?: Prisma.XOR<Prisma.OrgCreateWithoutEventsInput, Prisma.OrgUncheckedCreateWithoutEventsInput>
   connectOrCreate?: Prisma.OrgCreateOrConnectWithoutEventsInput
@@ -387,6 +408,7 @@ export type OrgCreateWithoutMembershipsInput = {
   updatedAt?: Date | string
   apiKeys?: Prisma.ApiKeyCreateNestedManyWithoutOrgInput
   events?: Prisma.EventCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteCreateNestedManyWithoutOrgInput
 }
 
@@ -397,6 +419,7 @@ export type OrgUncheckedCreateWithoutMembershipsInput = {
   updatedAt?: Date | string
   apiKeys?: Prisma.ApiKeyUncheckedCreateNestedManyWithoutOrgInput
   events?: Prisma.EventUncheckedCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteUncheckedCreateNestedManyWithoutOrgInput
 }
 
@@ -423,6 +446,7 @@ export type OrgUpdateWithoutMembershipsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   apiKeys?: Prisma.ApiKeyUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUpdateManyWithoutOrgNestedInput
 }
 
@@ -433,6 +457,7 @@ export type OrgUncheckedUpdateWithoutMembershipsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   apiKeys?: Prisma.ApiKeyUncheckedUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUncheckedUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUncheckedUpdateManyWithoutOrgNestedInput
 }
 
@@ -444,6 +469,7 @@ export type OrgCreateWithoutInvitesInput = {
   memberships?: Prisma.MemberShipCreateNestedManyWithoutOrgInput
   apiKeys?: Prisma.ApiKeyCreateNestedManyWithoutOrgInput
   events?: Prisma.EventCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutOrgInput
 }
 
 export type OrgUncheckedCreateWithoutInvitesInput = {
@@ -454,6 +480,7 @@ export type OrgUncheckedCreateWithoutInvitesInput = {
   memberships?: Prisma.MemberShipUncheckedCreateNestedManyWithoutOrgInput
   apiKeys?: Prisma.ApiKeyUncheckedCreateNestedManyWithoutOrgInput
   events?: Prisma.EventUncheckedCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutOrgInput
 }
 
 export type OrgCreateOrConnectWithoutInvitesInput = {
@@ -480,6 +507,7 @@ export type OrgUpdateWithoutInvitesInput = {
   memberships?: Prisma.MemberShipUpdateManyWithoutOrgNestedInput
   apiKeys?: Prisma.ApiKeyUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutOrgNestedInput
 }
 
 export type OrgUncheckedUpdateWithoutInvitesInput = {
@@ -490,6 +518,7 @@ export type OrgUncheckedUpdateWithoutInvitesInput = {
   memberships?: Prisma.MemberShipUncheckedUpdateManyWithoutOrgNestedInput
   apiKeys?: Prisma.ApiKeyUncheckedUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUncheckedUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutOrgNestedInput
 }
 
 export type OrgCreateWithoutApiKeysInput = {
@@ -499,6 +528,7 @@ export type OrgCreateWithoutApiKeysInput = {
   updatedAt?: Date | string
   memberships?: Prisma.MemberShipCreateNestedManyWithoutOrgInput
   events?: Prisma.EventCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteCreateNestedManyWithoutOrgInput
 }
 
@@ -509,6 +539,7 @@ export type OrgUncheckedCreateWithoutApiKeysInput = {
   updatedAt?: Date | string
   memberships?: Prisma.MemberShipUncheckedCreateNestedManyWithoutOrgInput
   events?: Prisma.EventUncheckedCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteUncheckedCreateNestedManyWithoutOrgInput
 }
 
@@ -535,6 +566,7 @@ export type OrgUpdateWithoutApiKeysInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MemberShipUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUpdateManyWithoutOrgNestedInput
 }
 
@@ -544,6 +576,67 @@ export type OrgUncheckedUpdateWithoutApiKeysInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MemberShipUncheckedUpdateManyWithoutOrgNestedInput
+  events?: Prisma.EventUncheckedUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutOrgNestedInput
+  invites?: Prisma.InviteUncheckedUpdateManyWithoutOrgNestedInput
+}
+
+export type OrgCreateWithoutUsageDailyInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.MemberShipCreateNestedManyWithoutOrgInput
+  apiKeys?: Prisma.ApiKeyCreateNestedManyWithoutOrgInput
+  events?: Prisma.EventCreateNestedManyWithoutOrgInput
+  invites?: Prisma.InviteCreateNestedManyWithoutOrgInput
+}
+
+export type OrgUncheckedCreateWithoutUsageDailyInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.MemberShipUncheckedCreateNestedManyWithoutOrgInput
+  apiKeys?: Prisma.ApiKeyUncheckedCreateNestedManyWithoutOrgInput
+  events?: Prisma.EventUncheckedCreateNestedManyWithoutOrgInput
+  invites?: Prisma.InviteUncheckedCreateNestedManyWithoutOrgInput
+}
+
+export type OrgCreateOrConnectWithoutUsageDailyInput = {
+  where: Prisma.OrgWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrgCreateWithoutUsageDailyInput, Prisma.OrgUncheckedCreateWithoutUsageDailyInput>
+}
+
+export type OrgUpsertWithoutUsageDailyInput = {
+  update: Prisma.XOR<Prisma.OrgUpdateWithoutUsageDailyInput, Prisma.OrgUncheckedUpdateWithoutUsageDailyInput>
+  create: Prisma.XOR<Prisma.OrgCreateWithoutUsageDailyInput, Prisma.OrgUncheckedCreateWithoutUsageDailyInput>
+  where?: Prisma.OrgWhereInput
+}
+
+export type OrgUpdateToOneWithWhereWithoutUsageDailyInput = {
+  where?: Prisma.OrgWhereInput
+  data: Prisma.XOR<Prisma.OrgUpdateWithoutUsageDailyInput, Prisma.OrgUncheckedUpdateWithoutUsageDailyInput>
+}
+
+export type OrgUpdateWithoutUsageDailyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.MemberShipUpdateManyWithoutOrgNestedInput
+  apiKeys?: Prisma.ApiKeyUpdateManyWithoutOrgNestedInput
+  events?: Prisma.EventUpdateManyWithoutOrgNestedInput
+  invites?: Prisma.InviteUpdateManyWithoutOrgNestedInput
+}
+
+export type OrgUncheckedUpdateWithoutUsageDailyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.MemberShipUncheckedUpdateManyWithoutOrgNestedInput
+  apiKeys?: Prisma.ApiKeyUncheckedUpdateManyWithoutOrgNestedInput
   events?: Prisma.EventUncheckedUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUncheckedUpdateManyWithoutOrgNestedInput
 }
@@ -555,6 +648,7 @@ export type OrgCreateWithoutEventsInput = {
   updatedAt?: Date | string
   memberships?: Prisma.MemberShipCreateNestedManyWithoutOrgInput
   apiKeys?: Prisma.ApiKeyCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteCreateNestedManyWithoutOrgInput
 }
 
@@ -565,6 +659,7 @@ export type OrgUncheckedCreateWithoutEventsInput = {
   updatedAt?: Date | string
   memberships?: Prisma.MemberShipUncheckedCreateNestedManyWithoutOrgInput
   apiKeys?: Prisma.ApiKeyUncheckedCreateNestedManyWithoutOrgInput
+  usageDaily?: Prisma.UsageDailyUncheckedCreateNestedManyWithoutOrgInput
   invites?: Prisma.InviteUncheckedCreateNestedManyWithoutOrgInput
 }
 
@@ -591,6 +686,7 @@ export type OrgUpdateWithoutEventsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MemberShipUpdateManyWithoutOrgNestedInput
   apiKeys?: Prisma.ApiKeyUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUpdateManyWithoutOrgNestedInput
 }
 
@@ -601,6 +697,7 @@ export type OrgUncheckedUpdateWithoutEventsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MemberShipUncheckedUpdateManyWithoutOrgNestedInput
   apiKeys?: Prisma.ApiKeyUncheckedUpdateManyWithoutOrgNestedInput
+  usageDaily?: Prisma.UsageDailyUncheckedUpdateManyWithoutOrgNestedInput
   invites?: Prisma.InviteUncheckedUpdateManyWithoutOrgNestedInput
 }
 
@@ -613,6 +710,7 @@ export type OrgCountOutputType = {
   memberships: number
   apiKeys: number
   events: number
+  usageDaily: number
   invites: number
 }
 
@@ -620,6 +718,7 @@ export type OrgCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.In
   memberships?: boolean | OrgCountOutputTypeCountMembershipsArgs
   apiKeys?: boolean | OrgCountOutputTypeCountApiKeysArgs
   events?: boolean | OrgCountOutputTypeCountEventsArgs
+  usageDaily?: boolean | OrgCountOutputTypeCountUsageDailyArgs
   invites?: boolean | OrgCountOutputTypeCountInvitesArgs
 }
 
@@ -657,6 +756,13 @@ export type OrgCountOutputTypeCountEventsArgs<ExtArgs extends runtime.Types.Exte
 /**
  * OrgCountOutputType without action
  */
+export type OrgCountOutputTypeCountUsageDailyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UsageDailyWhereInput
+}
+
+/**
+ * OrgCountOutputType without action
+ */
 export type OrgCountOutputTypeCountInvitesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.InviteWhereInput
 }
@@ -670,6 +776,7 @@ export type OrgSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
   memberships?: boolean | Prisma.Org$membershipsArgs<ExtArgs>
   apiKeys?: boolean | Prisma.Org$apiKeysArgs<ExtArgs>
   events?: boolean | Prisma.Org$eventsArgs<ExtArgs>
+  usageDaily?: boolean | Prisma.Org$usageDailyArgs<ExtArgs>
   invites?: boolean | Prisma.Org$invitesArgs<ExtArgs>
   _count?: boolean | Prisma.OrgCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["org"]>
@@ -700,6 +807,7 @@ export type OrgInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   memberships?: boolean | Prisma.Org$membershipsArgs<ExtArgs>
   apiKeys?: boolean | Prisma.Org$apiKeysArgs<ExtArgs>
   events?: boolean | Prisma.Org$eventsArgs<ExtArgs>
+  usageDaily?: boolean | Prisma.Org$usageDailyArgs<ExtArgs>
   invites?: boolean | Prisma.Org$invitesArgs<ExtArgs>
   _count?: boolean | Prisma.OrgCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -712,6 +820,7 @@ export type $OrgPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
     memberships: Prisma.$MemberShipPayload<ExtArgs>[]
     apiKeys: Prisma.$ApiKeyPayload<ExtArgs>[]
     events: Prisma.$EventPayload<ExtArgs>[]
+    usageDaily: Prisma.$UsageDailyPayload<ExtArgs>[]
     invites: Prisma.$InvitePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1116,6 +1225,7 @@ export interface Prisma__OrgClient<T, Null = never, ExtArgs extends runtime.Type
   memberships<T extends Prisma.Org$membershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Org$membershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MemberShipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   apiKeys<T extends Prisma.Org$apiKeysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Org$apiKeysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApiKeyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   events<T extends Prisma.Org$eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Org$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  usageDaily<T extends Prisma.Org$usageDailyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Org$usageDailyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UsageDailyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invites<T extends Prisma.Org$invitesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Org$invitesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1607,6 +1717,30 @@ export type Org$eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
   take?: number
   skip?: number
   distinct?: Prisma.EventScalarFieldEnum | Prisma.EventScalarFieldEnum[]
+}
+
+/**
+ * Org.usageDaily
+ */
+export type Org$usageDailyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsageDaily
+   */
+  select?: Prisma.UsageDailySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UsageDaily
+   */
+  omit?: Prisma.UsageDailyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsageDailyInclude<ExtArgs> | null
+  where?: Prisma.UsageDailyWhereInput
+  orderBy?: Prisma.UsageDailyOrderByWithRelationInput | Prisma.UsageDailyOrderByWithRelationInput[]
+  cursor?: Prisma.UsageDailyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.UsageDailyScalarFieldEnum | Prisma.UsageDailyScalarFieldEnum[]
 }
 
 /**

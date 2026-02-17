@@ -24,6 +24,7 @@ model Org {
   memberships MemberShip[]
   apiKeys     ApiKey[]
   events      Event[]
+  usageDaily  UsageDaily[]
   invites     Invite[]
 
   @@index([name])
@@ -122,10 +123,31 @@ model ApiKey {
   updatedAt DateTime @updatedAt
 
   events Event[]
+  usageDaily UsageDaily[]
 
   @@unique([keyPrefix])
   @@index([orgId, createdAt])
   @@index([orgId, revokedAt])
+}
+
+model UsageDaily {
+  id String @id @default(uuid())
+
+  orgId String
+  org   Org    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  apiKeyId String
+  apiKey   ApiKey @relation(fields: [apiKeyId], references: [id], onDelete: Cascade)
+
+  day DateTime
+  eventsCount Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([orgId, apiKeyId, day])
+  @@index([orgId, day])
+  @@index([apiKeyId, day])
 }
 
 enum EventType {

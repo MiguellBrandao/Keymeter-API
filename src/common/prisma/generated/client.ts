@@ -65,6 +65,11 @@ export type Invite = Prisma.InviteModel
  */
 export type ApiKey = Prisma.ApiKeyModel
 /**
+ * Model UsageDaily
+ * 
+ */
+export type UsageDaily = Prisma.UsageDailyModel
+/**
  * Model Event
  * 
  */
