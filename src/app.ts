@@ -1,4 +1,6 @@
 import express, { type Express } from 'express'
+import swaggerUi from "swagger-ui-express"
+import { openApiSpec } from './common/docs/openapi.js'
 import { errorHandler } from './common/errors/errorHandler.js'
 import { prisma } from './common/prisma/client.js'
 import { redis } from './common/redis/client.js'
@@ -11,6 +13,8 @@ export const app: Express = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.get("/docs.json", (_req, res) => res.status(200).json(openApiSpec))
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(openApiSpec))
 
 app.get('/health', async (_req, res) => {
   const startedAt = Date.now()
