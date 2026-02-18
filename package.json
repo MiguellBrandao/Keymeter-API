@@ -6,6 +6,8 @@
     "start": "tsx src/server.ts",
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "vitest run src/tests",
     "test:watch": "vitest src/tests"
   },
@@ -30,19 +32,24 @@
     "ioredis": "^5.9.3",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.18.0",
+    "swagger-ui-express": "^5.0.1",
     "typescript": "^5.9.3",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.2.3",
     "@types/pg": "^8.16.0",
     "@types/supertest": "^6.0.3",
     "@types/swagger-ui-express": "^4.1.8",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
     "prisma": "^7.4.0",
     "supertest": "^7.2.2",
     "tsx": "^4.21.0",
+    "typescript-eslint": "^8.56.0",
     "vitest": "^4.0.18"
   }
 }

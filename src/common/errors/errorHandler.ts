@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express"
 import { AppError } from "./AppError.js"
 
-export function errorHandler(err: unknown, req: Request, res: Response, next: NextFunction) {
+export function errorHandler(err: unknown, _req: Request, res: Response, _next: NextFunction) {
   if (err instanceof AppError) {
     return res.status(err.httpStatus).json({
       message: err.expose ? err.message : "Internal server error",
